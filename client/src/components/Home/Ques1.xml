@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE lab [<!ELEMENT lab (title, student, subject, experiments)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT student (name, rollno)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT rollno (#PCDATA)>
+<!ELEMENT subject (#PCDATA)>
+<!ELEMENT experiments (experiment+)>
+<!ELEMENT experiment (number, heading, page)>
+<!ELEMENT number (#PCDATA)>
+<!ELEMENT heading (#PCDATA)>
+<!ELEMENT page (#PCDATA)>]>
+<lab>
+  <title>Table of Contents - Lab File</title>
+  <student>
+    <name>Shivam Kumar Singh</name>
+    <rollno>MCA/45022/24</rollno>
+  </student>
+  <subject>IT Tools and Techniques</subject>
+  <experiments>
+    <experiment>
+      <number>1</number>
+      <heading>prac1</heading>
+      <page>1</page>
+    </experiment>
+    <experiment>
+      <number>2</number>
+      <heading>prac2</heading>
+      <page>5</page>
+    </experiment>
+    <experiment>
+      <number>3</number>
+      <heading>prac3</heading>
+      <page>9</page>
+    </experiment>
+    <experiment>
+      <number>4</number>
+      <heading>prac4</heading>
+      <page>13</page>
+    </experiment>
+  </experiments>
+</lab>

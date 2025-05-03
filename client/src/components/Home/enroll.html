@@ -1,0 +1,1977 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enroll Now - Excellence Coaching Institute</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#4F46E5", secondary: "#818CF8" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f9fafb;
+      }
+      .progress-step {
+        position: relative;
+      }
+      .progress-step::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: calc(100% + 8px);
+        width: calc(100% - 40px);
+        height: 2px;
+        background-color: #e5e7eb;
+        transform: translateY(-50%);
+      }
+      .progress-step:last-child::after {
+        display: none;
+      }
+      .progress-step.active .step-number {
+        background-color: #4F46E5;
+        color: white;
+      }
+      .progress-step.completed .step-number {
+        background-color: #4F46E5;
+        color: white;
+      }
+      .progress-step.completed::after {
+        background-color: #4F46E5;
+      }
+      .course-card {
+        transition: all 0.3s ease;
+      }
+      .course-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+      .course-card.selected {
+        border-color: #4F46E5;
+        background-color: #f5f5ff;
+      }
+      input:focus, select:focus, textarea:focus {
+        outline: none;
+        border-color: #4F46E5;
+      }
+      .custom-checkbox {
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border: 2px solid #d1d5db;
+        border-radius: 4px;
+        position: relative;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .custom-checkbox:checked {
+        background-color: #4F46E5;
+        border-color: #4F46E5;
+      }
+      .custom-checkbox:checked::after {
+        content: "";
+        position: absolute;
+        left: 6px;
+        top: 2px;
+        width: 6px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+      }
+      .custom-radio {
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border: 2px solid #d1d5db;
+        border-radius: 50%;
+        position: relative;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .custom-radio:checked {
+        border-color: #4F46E5;
+      }
+      .custom-radio:checked::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #4F46E5;
+        transform: translate(-50%, -50%);
+      }
+      .payment-method {
+        transition: all 0.2s ease;
+      }
+      .payment-method.selected {
+        border-color: #4F46E5;
+        background-color: #f5f5ff;
+      }
+      .time-slot {
+        transition: all 0.2s ease;
+        cursor: pointer;
+      }
+      .time-slot:hover {
+        border-color: #4F46E5;
+      }
+      .time-slot.selected {
+        border-color: #4F46E5;
+        background-color: #f5f5ff;
+      }
+      .time-slot.unavailable {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+      .calendar-day {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .calendar-day:hover:not(.day-disabled) {
+        background-color: #f5f5ff;
+      }
+      .calendar-day.day-selected {
+        background-color: #4F46E5;
+        color: white;
+      }
+      .calendar-day.day-disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+      }
+      .form-step {
+        display: none;
+      }
+      .form-step.active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+      <div
+        class="container mx-auto px-6 py-3 flex items-center justify-between"
+      >
+        <div class="flex items-center">
+          <a
+            href="https://readdy.ai/home/a18ae8f9-3ebd-440a-abb1-618a16bae242/af9856d8-7432-477d-a922-431524dd228a"
+            data-readdy="true"
+            class="text-2xl font-['Pacifico'] text-primary"
+            >logo</a
+          >
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a
+            href="https://readdy.ai/home/a18ae8f9-3ebd-440a-abb1-618a16bae242/359214b3-f33a-48f8-963e-b01424b14574"
+            data-readdy="true"
+            class="text-gray-800 font-medium hover:text-primary transition-colors"
+            >Home</a
+          >
+          <a
+            href="https://readdy.ai/home/a18ae8f9-3ebd-440a-abb1-618a16bae242/b4deedfe-61a5-4318-987b-6cd624179211"
+            data-readdy="true"
+            class="text-gray-800 font-medium hover:text-primary transition-colors"
+            >Programs</a
+          >
+          <a
+            href="https://readdy.ai/home/a18ae8f9-3ebd-440a-abb1-618a16bae242/af9856d8-7432-477d-a922-431524dd228a"
+            data-readdy="true"
+            class="text-gray-800 font-medium hover:text-primary transition-colors"
+            >Foundation Courses</a
+          >
+          <a
+            href="https://readdy.ai/home/a18ae8f9-3ebd-440a-abb1-618a16bae242/0ffcedf8-05e4-4ec2-a513-df21217889fb"
+            data-readdy="true"
+            class="text-gray-800 font-medium hover:text-primary transition-colors"
+            >About Us</a
+          >
+          <a
+            href="#"
+            class="text-gray-800 font-medium hover:text-primary transition-colors"
+            >Contact</a
+          >
+        </div>
+        <div>
+          <a
+            href="https://readdy.ai/home/a18ae8f9-3ebd-440a-abb1-618a16bae242/af9856d8-7432-477d-a922-431524dd228a"
+            data-readdy="true"
+            class="flex items-center text-gray-700 hover:text-primary"
+          >
+            <i class="ri-arrow-left-line mr-1"></i>
+            <span>Back to Courses</span>
+          </a>
+        </div>
+        <div class="md:hidden w-10 h-10 flex items-center justify-center">
+          <i class="ri-menu-line ri-lg text-gray-800"></i>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Enrollment Form Section -->
+    <section class="pt-28 pb-20">
+      <div class="container mx-auto px-6">
+        <div class="text-center mb-12">
+          <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Enroll in Foundation Courses
+          </h1>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Complete the following steps to enroll in our comprehensive
+            foundation courses and begin your journey to academic excellence.
+          </p>
+        </div>
+
+        <!-- Progress Steps -->
+        <div class="max-w-4xl mx-auto mb-12">
+          <div class="flex justify-between">
+            <div class="progress-step active w-1/5 text-center">
+              <div
+                class="step-number mx-auto w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center mb-2"
+              >
+                1
+              </div>
+              <span class="text-sm font-medium text-gray-900"
+                >Select Course</span
+              >
+            </div>
+            <div class="progress-step w-1/5 text-center">
+              <div
+                class="step-number mx-auto w-10 h-10 rounded-full bg-gray-200 text-gray-700 flex items-center justify-center mb-2"
+              >
+                2
+              </div>
+              <span class="text-sm font-medium text-gray-500"
+                >Personal Info</span
+              >
+            </div>
+            <div class="progress-step w-1/5 text-center">
+              <div
+                class="step-number mx-auto w-10 h-10 rounded-full bg-gray-200 text-gray-700 flex items-center justify-center mb-2"
+              >
+                3
+              </div>
+              <span class="text-sm font-medium text-gray-500">Payment</span>
+            </div>
+            <div class="progress-step w-1/5 text-center">
+              <div
+                class="step-number mx-auto w-10 h-10 rounded-full bg-gray-200 text-gray-700 flex items-center justify-center mb-2"
+              >
+                4
+              </div>
+              <span class="text-sm font-medium text-gray-500">Schedule</span>
+            </div>
+            <div class="progress-step w-1/5 text-center">
+              <div
+                class="step-number mx-auto w-10 h-10 rounded-full bg-gray-200 text-gray-700 flex items-center justify-center mb-2"
+              >
+                5
+              </div>
+              <span class="text-sm font-medium text-gray-500"
+                >Confirmation</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Enrollment Form -->
+        <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-sm p-8">
+          <form id="enrollmentForm">
+            <!-- Step 1: Course Selection -->
+            <div class="form-step active" id="step1">
+              <h2 class="text-2xl font-bold text-gray-900 mb-6">
+                Select Your Foundation Course
+              </h2>
+              <p class="text-gray-600 mb-8">
+                Choose the foundation course that best aligns with your academic
+                goals and interests.
+              </p>
+
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <!-- Mathematics Course -->
+                <div
+                  class="course-card border border-gray-200 rounded-lg overflow-hidden cursor-pointer"
+                  data-course="mathematics"
+                  data-price="899"
+                >
+                  <div class="h-40 overflow-hidden">
+                    <img
+                      src="https://readdy.ai/api/search-image?query=Modern%2520mathematics%2520learning%2520environment%2520with%2520geometric%2520shapes%252C%2520formulas%252C%2520and%2520digital%2520displays.%2520Clean%252C%2520minimalist%2520setting%2520with%2520mathematical%2520concepts%2520visualized%2520through%2520modern%2520technology.%2520Professional%2520lighting%252C%2520inspiring%2520educational%2520atmosphere.&width=400&height=300&seq=2001&orientation=landscape"
+                      alt="Mathematics Foundation"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div class="p-4">
+                    <h3 class="text-lg font-bold text-gray-900 mb-1">
+                      Mathematics Foundation
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-2">
+                      Master essential mathematical concepts from algebra to
+                      calculus.
+                    </p>
+                    <div class="flex justify-between items-center">
+                      <span class="text-primary font-bold">$899</span>
+                      <span class="text-gray-500 text-sm">12 Weeks</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Sciences Course -->
+                <div
+                  class="course-card border border-gray-200 rounded-lg overflow-hidden cursor-pointer"
+                  data-course="sciences"
+                  data-price="999"
+                >
+                  <div class="h-40 overflow-hidden">
+                    <img
+                      src="https://readdy.ai/api/search-image?query=Modern%2520science%2520laboratory%2520with%2520advanced%2520equipment%252C%2520clean%2520workstations%252C%2520and%2520digital%2520displays.%2520Bright%252C%2520professional%2520setting%2520showing%2520scientific%2520instruments%2520and%2520experimental%2520setups.%2520High-quality%2520professional%2520photography%2520with%2520perfect%2520lighting.&width=400&height=300&seq=2002&orientation=landscape"
+                      alt="Sciences Foundation"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div class="p-4">
+                    <h3 class="text-lg font-bold text-gray-900 mb-1">
+                      Sciences Foundation
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-2">
+                      Comprehensive study of physics, chemistry, and biology
+                      principles.
+                    </p>
+                    <div class="flex justify-between items-center">
+                      <span class="text-primary font-bold">$999</span>
+                      <span class="text-gray-500 text-sm">14 Weeks</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Language Arts Course -->
+                <div
+                  class="course-card border border-gray-200 rounded-lg overflow-hidden cursor-pointer"
+                  data-course="language-arts"
+                  data-price="799"
+                >
+                  <div class="h-40 overflow-hidden">
+                    <img
+                      src="https://readdy.ai/api/search-image?query=Modern%2520library%2520or%2520study%2520space%2520with%2520books%252C%2520digital%2520resources%252C%2520and%2520comfortable%2520reading%2520areas.%2520Warm%252C%2520inviting%2520atmosphere%2520with%2520natural%2520lighting.%2520Contemporary%2520design%2520with%2520perfect%2520balance%2520of%2520traditional%2520and%2520digital%2520learning%2520materials.&width=400&height=300&seq=2003&orientation=landscape"
+                      alt="Language Arts Foundation"
+                      class="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div class="p-4">
+                    <h3 class="text-lg font-bold text-gray-900 mb-1">
+                      Language Arts Foundation
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-2">
+                      Enhance reading, writing, and analytical thinking skills.
+                    </p>
+                    <div class="flex justify-between items-center">
+                      <span class="text-primary font-bold">$799</span>
+                      <span class="text-gray-500 text-sm">10 Weeks</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Selected Course Details -->
+              <div
+                id="selectedCourseDetails"
+                class="hidden bg-gray-50 p-6 rounded-lg mb-8"
+              >
+                <h3 class="text-xl font-bold text-gray-900 mb-4">
+                  Selected Course Details
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <h4
+                      class="text-lg font-semibold text-gray-900 mb-2"
+                      id="courseTitle"
+                    >
+                      Mathematics Foundation
+                    </h4>
+                    <p class="text-gray-600 mb-4" id="courseDescription">
+                      Master essential mathematical concepts from algebra to
+                      calculus, building a strong foundation for advanced
+                      quantitative studies.
+                    </p>
+                    <div class="space-y-2">
+                      <div class="flex items-center">
+                        <div
+                          class="w-5 h-5 flex items-center justify-center text-primary mr-2"
+                        >
+                          <i class="ri-check-line"></i>
+                        </div>
+                        <span class="text-gray-700" id="courseTopic1"
+                          >Algebra & Functions</span
+                        >
+                      </div>
+                      <div class="flex items-center">
+                        <div
+                          class="w-5 h-5 flex items-center justify-center text-primary mr-2"
+                        >
+                          <i class="ri-check-line"></i>
+                        </div>
+                        <span class="text-gray-700" id="courseTopic2"
+                          >Geometry & Trigonometry</span
+                        >
+                      </div>
+                      <div class="flex items-center">
+                        <div
+                          class="w-5 h-5 flex items-center justify-center text-primary mr-2"
+                        >
+                          <i class="ri-check-line"></i>
+                        </div>
+                        <span class="text-gray-700" id="courseTopic3"
+                          >Calculus Fundamentals</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="bg-white p-4 rounded-lg border border-gray-200">
+                      <h4 class="text-lg font-semibold text-gray-900 mb-2">
+                        Course Summary
+                      </h4>
+                      <div class="space-y-3 mb-4">
+                        <div class="flex justify-between">
+                          <span class="text-gray-600">Course Fee:</span>
+                          <span
+                            class="font-semibold text-gray-900"
+                            id="courseFee"
+                            >$899</span
+                          >
+                        </div>
+                        <div class="flex justify-between">
+                          <span class="text-gray-600">Duration:</span>
+                          <span
+                            class="font-semibold text-gray-900"
+                            id="courseDuration"
+                            >12 Weeks</span
+                          >
+                        </div>
+                        <div class="flex justify-between">
+                          <span class="text-gray-600">Start Date:</span>
+                          <span class="font-semibold text-gray-900"
+                            >May 15, 2025</span
+                          >
+                        </div>
+                        <div class="flex justify-between">
+                          <span class="text-gray-600">Materials:</span>
+                          <span class="font-semibold text-gray-900"
+                            >Included</span
+                          >
+                        </div>
+                      </div>
+                      <div class="pt-4 border-t border-gray-200">
+                        <div class="flex justify-between font-bold">
+                          <span class="text-gray-900">Total:</span>
+                          <span class="text-primary" id="courseTotal"
+                            >$899</span
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex justify-end">
+                <button
+                  type="button"
+                  id="step1Next"
+                  class="bg-primary text-white px-6 py-3 !rounded-button font-medium shadow-sm hover:bg-opacity-90 transition-all whitespace-nowrap disabled:opacity-50 disabled:cursor-not-allowed"
+                  disabled
+                >
+                  Continue to Personal Information
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 2: Personal Information -->
+            <div class="form-step" id="step2">
+              <h2 class="text-2xl font-bold text-gray-900 mb-6">
+                Personal Information
+              </h2>
+              <p class="text-gray-600 mb-8">
+                Please provide your personal details to complete your
+                enrollment.
+              </p>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div>
+                  <label
+                    for="firstName"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >First Name *</label
+                  >
+                  <input
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    class="w-full px-4 py-2 border border-gray-300 !rounded-button"
+                    required
+                  />
+                </div>
+                <div>
+                  <label
+                    for="lastName"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >Last Name *</label
+                  >
+                  <input
+                    type="text"
+                    id="lastName"
+                    name="lastName"
+                    class="w-full px-4 py-2 border border-gray-300 !rounded-button"
+                    required
+                  />
+                </div>
+                <div>
+                  <label
+                    for="email"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >Email Address *</label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="w-full px-4 py-2 border border-gray-300 !rounded-button"
+                    required
+                  />
+                </div>
+                <div>
+                  <label
+                    for="phone"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >Phone Number *</label
+                  >
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    class="w-full px-4 py-2 border border-gray-300 !rounded-button"
+                    required
+                  />
+                </div>
+                <div class="md:col-span-2">
+                  <label
+                    for="address"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >Address *</label
+                  >
+                  <input
+                    type="text"
+                    id="address"
+                    name="address"
+                    class="w-full px-4 py-2 border border-gray-300 !rounded-button"
+                    required
+                  />
+                </div>
+                <div>
+                  <label
+                    for="city"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >City *</label
+                  >
+                  <input
+                    type="text"
+                    id="city"
+                    name="city"
+                    class="w-full px-4 py-2 border border-gray-300 !rounded-button"
+                    required
+                  />
+                </div>
+                <div>
+                  <label
+                    for="zipCode"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >ZIP Code *</label
+                  >
+                  <input
+                    type="text"
+                    id="zipCode"
+                    name="zipCode"
+                    class="w-full px-4 py-2 border border-gray-300 !rounded-button"
+                    required
+                  />
+                </div>
+                <div>
+                  <label
+                    for="country"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >Country *</label
+                  >
+                  <div class="relative">
+                    <select
+                      id="country"
+                      name="country"
+                      class="w-full appearance-none px-4 py-2 border border-gray-300 !rounded-button pr-8"
+                      required
+                    >
+                      <option value="">Select Country</option>
+                      <option value="US">United States</option>
+                      <option value="CA">Canada</option>
+                      <option value="UK">United Kingdom</option>
+                      <option value="AU">Australia</option>
+                      <option value="Other">Other</option>
+                    </select>
+                    <div
+                      class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
+                    >
+                      <i class="ri-arrow-down-s-line"></i>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <label
+                    for="education"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >Highest Education Level *</label
+                  >
+                  <div class="relative">
+                    <select
+                      id="education"
+                      name="education"
+                      class="w-full appearance-none px-4 py-2 border border-gray-300 !rounded-button pr-8"
+                      required
+                    >
+                      <option value="">Select Education Level</option>
+                      <option value="high-school">High School</option>
+                      <option value="associate">Associate Degree</option>
+                      <option value="bachelor">Bachelor's Degree</option>
+                      <option value="master">Master's Degree</option>
+                      <option value="doctorate">Doctorate</option>
+                    </select>
+                    <div
+                      class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
+                    >
+                      <i class="ri-arrow-down-s-line"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="md:col-span-2">
+                  <label
+                    for="emergencyContact"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >Emergency Contact Name *</label
+                  >
+                  <input
+                    type="text"
+                    id="emergencyContact"
+                    name="emergencyContact"
+                    class="w-full px-4 py-2 border border-gray-300 !rounded-button"
+                    required
+                  />
+                </div>
+                <div>
+                  <label
+                    for="emergencyPhone"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >Emergency Contact Phone *</label
+                  >
+                  <input
+                    type="tel"
+                    id="emergencyPhone"
+                    name="emergencyPhone"
+                    class="w-full px-4 py-2 border border-gray-300 !rounded-button"
+                    required
+                  />
+                </div>
+                <div>
+                  <label
+                    for="emergencyRelation"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >Relationship to Emergency Contact *</label
+                  >
+                  <input
+                    type="text"
+                    id="emergencyRelation"
+                    name="emergencyRelation"
+                    class="w-full px-4 py-2 border border-gray-300 !rounded-button"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="flex items-start mb-8">
+                <input
+                  type="checkbox"
+                  id="termsAgree"
+                  name="termsAgree"
+                  class="custom-checkbox mt-1"
+                  required
+                />
+                <label for="termsAgree" class="ml-2 text-sm text-gray-700"
+                  >I agree to the
+                  <a href="#" class="text-primary hover:underline"
+                    >Terms and Conditions</a
+                  >
+                  and
+                  <a href="#" class="text-primary hover:underline"
+                    >Privacy Policy</a
+                  >
+                  of Excellence Coaching Institute.</label
+                >
+              </div>
+
+              <div class="flex justify-between">
+                <button
+                  type="button"
+                  id="step2Prev"
+                  class="border border-gray-300 text-gray-700 px-6 py-3 !rounded-button font-medium hover:bg-gray-50 transition-all whitespace-nowrap"
+                >
+                  Back to Course Selection
+                </button>
+                <button
+                  type="button"
+                  id="step2Next"
+                  class="bg-primary text-white px-6 py-3 !rounded-button font-medium shadow-sm hover:bg-opacity-90 transition-all whitespace-nowrap"
+                >
+                  Continue to Payment
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 3: Payment Information -->
+            <div class="form-step" id="step3">
+              <h2 class="text-2xl font-bold text-gray-900 mb-6">
+                Payment Information
+              </h2>
+              <p class="text-gray-600 mb-8">
+                Select your preferred payment method and enter your payment
+                details.
+              </p>
+
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                <div
+                  class="payment-method border border-gray-200 rounded-lg p-4 cursor-pointer"
+                  data-method="credit-card"
+                >
+                  <div class="flex items-center mb-2">
+                    <input
+                      type="radio"
+                      name="paymentMethod"
+                      id="creditCard"
+                      value="credit-card"
+                      class="custom-radio"
+                      checked
+                    />
+                    <label
+                      for="creditCard"
+                      class="ml-2 font-medium text-gray-900"
+                      >Credit/Debit Card</label
+                    >
+                  </div>
+                  <div class="flex space-x-2 mt-2">
+                    <i class="ri-visa-fill ri-lg text-blue-600"></i>
+                    <i class="ri-mastercard-fill ri-lg text-red-500"></i>
+                    <i class="ri-american-express-fill ri-lg text-blue-500"></i>
+                  </div>
+                </div>
+                <div
+                  class="payment-method border border-gray-200 rounded-lg p-4 cursor-pointer"
+                  data-method="paypal"
+                >
+                  <div class="flex items-center mb-2">
+                    <input
+                      type="radio"
+                      name="paymentMethod"
+                      id="paypal"
+                      value="paypal"
+                      class="custom-radio"
+                    />
+                    <label for="paypal" class="ml-2 font-medium text-gray-900"
+                      >PayPal</label
+                    >
+                  </div>
+                  <div class="flex space-x-2 mt-2">
+                    <i class="ri-paypal-fill ri-lg text-blue-700"></i>
+                  </div>
+                </div>
+                <div
+                  class="payment-method border border-gray-200 rounded-lg p-4 cursor-pointer"
+                  data-method="apple-pay"
+                >
+                  <div class="flex items-center mb-2">
+                    <input
+                      type="radio"
+                      name="paymentMethod"
+                      id="applePay"
+                      value="apple-pay"
+                      class="custom-radio"
+                    />
+                    <label for="applePay" class="ml-2 font-medium text-gray-900"
+                      >Apple Pay</label
+                    >
+                  </div>
+                  <div class="flex space-x-2 mt-2">
+                    <i class="ri-apple-fill ri-lg"></i>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Credit Card Payment Form -->
+              <div id="creditCardForm" class="mb-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                  <div class="md:col-span-2">
+                    <label
+                      for="cardName"
+                      class="block text-sm font-medium text-gray-700 mb-1"
+                      >Name on Card *</label
+                    >
+                    <input
+                      type="text"
+                      id="cardName"
+                      name="cardName"
+                      class="w-full px-4 py-2 border border-gray-300 !rounded-button"
+                      required
+                    />
+                  </div>
+                  <div class="md:col-span-2">
+                    <label
+                      for="cardNumber"
+                      class="block text-sm font-medium text-gray-700 mb-1"
+                      >Card Number *</label
+                    >
+                    <div class="relative">
+                      <input
+                        type="text"
+                        id="cardNumber"
+                        name="cardNumber"
+                        class="w-full px-4 py-2 border border-gray-300 !rounded-button pr-10"
+                        placeholder="1234 5678 9012 3456"
+                        required
+                      />
+                      <div
+                        class="absolute right-3 top-1/2 transform -translate-y-1/2"
+                      >
+                        <i class="ri-bank-card-line text-gray-400"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <label
+                      for="expiryDate"
+                      class="block text-sm font-medium text-gray-700 mb-1"
+                      >Expiry Date *</label
+                    >
+                    <input
+                      type="text"
+                      id="expiryDate"
+                      name="expiryDate"
+                      class="w-full px-4 py-2 border border-gray-300 !rounded-button"
+                      placeholder="MM/YY"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label
+                      for="cvv"
+                      class="block text-sm font-medium text-gray-700 mb-1"
+                      >CVV *</label
+                    >
+                    <div class="relative">
+                      <input
+                        type="text"
+                        id="cvv"
+                        name="cvv"
+                        class="w-full px-4 py-2 border border-gray-300 !rounded-button pr-10"
+                        placeholder="123"
+                        required
+                      />
+                      <div
+                        class="absolute right-3 top-1/2 transform -translate-y-1/2"
+                      >
+                        <i class="ri-question-line text-gray-400"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex items-start mb-6">
+                  <input
+                    type="checkbox"
+                    id="saveCard"
+                    name="saveCard"
+                    class="custom-checkbox mt-1"
+                  />
+                  <label for="saveCard" class="ml-2 text-sm text-gray-700"
+                    >Save this card for future payments</label
+                  >
+                </div>
+              </div>
+
+              <!-- PayPal Form -->
+              <div id="paypalForm" class="hidden mb-8">
+                <div class="bg-blue-50 p-6 rounded-lg text-center">
+                  <i class="ri-paypal-fill ri-3x text-blue-700 mb-4"></i>
+                  <p class="text-gray-700 mb-4">
+                    You will be redirected to PayPal to complete your payment
+                    securely.
+                  </p>
+                  <button
+                    type="button"
+                    class="bg-blue-700 text-white px-6 py-2 !rounded-button font-medium hover:bg-blue-800 transition-all whitespace-nowrap"
+                  >
+                    Continue to PayPal
+                  </button>
+                </div>
+              </div>
+
+              <!-- Apple Pay Form -->
+              <div id="applePayForm" class="hidden mb-8">
+                <div class="bg-gray-50 p-6 rounded-lg text-center">
+                  <i class="ri-apple-fill ri-3x mb-4"></i>
+                  <p class="text-gray-700 mb-4">
+                    You will be prompted to complete your payment using Apple
+                    Pay.
+                  </p>
+                  <button
+                    type="button"
+                    class="bg-black text-white px-6 py-2 !rounded-button font-medium hover:bg-gray-900 transition-all whitespace-nowrap"
+                  >
+                    Pay with Apple Pay
+                  </button>
+                </div>
+              </div>
+
+              <!-- Order Summary -->
+              <div class="bg-gray-50 p-6 rounded-lg mb-8">
+                <h3 class="text-lg font-bold text-gray-900 mb-4">
+                  Order Summary
+                </h3>
+                <div class="space-y-3 mb-4">
+                  <div class="flex justify-between">
+                    <span class="text-gray-600" id="summaryCourseName"
+                      >Mathematics Foundation</span
+                    >
+                    <span class="font-semibold text-gray-900" id="summaryPrice"
+                      >$899</span
+                    >
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-gray-600">Course Materials</span>
+                    <span class="font-semibold text-gray-900">Included</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-gray-600">Registration Fee</span>
+                    <span class="font-semibold text-gray-900">$50</span>
+                  </div>
+                </div>
+                <div class="pt-4 border-t border-gray-200">
+                  <div class="flex justify-between font-bold">
+                    <span class="text-gray-900">Total:</span>
+                    <span class="text-primary" id="summaryTotal">$949</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex items-start mb-8">
+                <div
+                  class="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-green-100 rounded-full mr-4"
+                >
+                  <i class="ri-shield-check-line ri-lg text-green-600"></i>
+                </div>
+                <div>
+                  <h4 class="text-md font-semibold text-gray-900 mb-1">
+                    Secure Payment
+                  </h4>
+                  <p class="text-sm text-gray-600">
+                    Your payment information is encrypted and secure. We never
+                    store your full credit card details.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex justify-between">
+                <button
+                  type="button"
+                  id="step3Prev"
+                  class="border border-gray-300 text-gray-700 px-6 py-3 !rounded-button font-medium hover:bg-gray-50 transition-all whitespace-nowrap"
+                >
+                  Back to Personal Information
+                </button>
+                <button
+                  type="button"
+                  id="step3Next"
+                  class="bg-primary text-white px-6 py-3 !rounded-button font-medium shadow-sm hover:bg-opacity-90 transition-all whitespace-nowrap"
+                >
+                  Continue to Schedule
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 4: Schedule Selection -->
+            <div class="form-step" id="step4">
+              <h2 class="text-2xl font-bold text-gray-900 mb-6">
+                Select Your Schedule
+              </h2>
+              <p class="text-gray-600 mb-8">
+                Choose your preferred class days and times for your selected
+                course.
+              </p>
+
+              <!-- Calendar View -->
+              <div class="mb-8">
+                <div class="flex justify-between items-center mb-4">
+                  <h3 class="text-lg font-semibold text-gray-900">May 2025</h3>
+                  <div class="flex space-x-2">
+                    <button
+                      type="button"
+                      class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100"
+                    >
+                      <i class="ri-arrow-left-s-line"></i>
+                    </button>
+                    <button
+                      type="button"
+                      class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100"
+                    >
+                      <i class="ri-arrow-right-s-line"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Calendar Grid -->
+                <div class="grid grid-cols-7 gap-2 mb-6">
+                  <div class="text-center text-sm font-medium text-gray-500">
+                    Sun
+                  </div>
+                  <div class="text-center text-sm font-medium text-gray-500">
+                    Mon
+                  </div>
+                  <div class="text-center text-sm font-medium text-gray-500">
+                    Tue
+                  </div>
+                  <div class="text-center text-sm font-medium text-gray-500">
+                    Wed
+                  </div>
+                  <div class="text-center text-sm font-medium text-gray-500">
+                    Thu
+                  </div>
+                  <div class="text-center text-sm font-medium text-gray-500">
+                    Fri
+                  </div>
+                  <div class="text-center text-sm font-medium text-gray-500">
+                    Sat
+                  </div>
+
+                  <!-- Week 1 -->
+                  <div class="calendar-day day-disabled">27</div>
+                  <div class="calendar-day day-disabled">28</div>
+                  <div class="calendar-day day-disabled">29</div>
+                  <div class="calendar-day day-disabled">30</div>
+                  <div class="calendar-day">1</div>
+                  <div class="calendar-day">2</div>
+                  <div class="calendar-day">3</div>
+
+                  <!-- Week 2 -->
+                  <div class="calendar-day">4</div>
+                  <div class="calendar-day">5</div>
+                  <div class="calendar-day">6</div>
+                  <div class="calendar-day">7</div>
+                  <div class="calendar-day">8</div>
+                  <div class="calendar-day">9</div>
+                  <div class="calendar-day">10</div>
+
+                  <!-- Week 3 -->
+                  <div class="calendar-day">11</div>
+                  <div class="calendar-day">12</div>
+                  <div class="calendar-day">13</div>
+                  <div class="calendar-day">14</div>
+                  <div class="calendar-day day-selected">15</div>
+                  <div class="calendar-day">16</div>
+                  <div class="calendar-day">17</div>
+
+                  <!-- Week 4 -->
+                  <div class="calendar-day">18</div>
+                  <div class="calendar-day">19</div>
+                  <div class="calendar-day">20</div>
+                  <div class="calendar-day">21</div>
+                  <div class="calendar-day">22</div>
+                  <div class="calendar-day">23</div>
+                  <div class="calendar-day">24</div>
+
+                  <!-- Week 5 -->
+                  <div class="calendar-day">25</div>
+                  <div class="calendar-day">26</div>
+                  <div class="calendar-day">27</div>
+                  <div class="calendar-day">28</div>
+                  <div class="calendar-day">29</div>
+                  <div class="calendar-day">30</div>
+                  <div class="calendar-day">31</div>
+                </div>
+
+                <p class="text-sm text-gray-600 mb-6">
+                  Your course will begin on
+                  <span class="font-semibold">Thursday, May 15, 2025</span>.
+                  Please select your preferred weekly schedule below.
+                </p>
+              </div>
+
+              <!-- Time Slot Selection -->
+              <div class="mb-8">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">
+                  Available Time Slots
+                </h3>
+                <p class="text-sm text-gray-600 mb-4">
+                  Select your preferred time slots for your weekly classes
+                  (select 2 slots per week).
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                  <div>
+                    <h4 class="font-medium text-gray-900 mb-2">Monday</h4>
+                    <div class="space-y-2">
+                      <div
+                        class="time-slot border border-gray-200 rounded-lg p-3 flex justify-between items-center"
+                      >
+                        <span class="text-gray-700">9:00 AM - 11:00 AM</span>
+                        <div
+                          class="w-5 h-5 border border-gray-300 rounded-sm"
+                        ></div>
+                      </div>
+                      <div
+                        class="time-slot border border-gray-200 rounded-lg p-3 flex justify-between items-center"
+                      >
+                        <span class="text-gray-700">1:00 PM - 3:00 PM</span>
+                        <div
+                          class="w-5 h-5 border border-gray-300 rounded-sm"
+                        ></div>
+                      </div>
+                      <div
+                        class="time-slot unavailable border border-gray-200 rounded-lg p-3 flex justify-between items-center"
+                      >
+                        <span class="text-gray-700">6:00 PM - 8:00 PM</span>
+                        <span class="text-xs text-red-500">Full</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 class="font-medium text-gray-900 mb-2">Wednesday</h4>
+                    <div class="space-y-2">
+                      <div
+                        class="time-slot border border-gray-200 rounded-lg p-3 flex justify-between items-center"
+                      >
+                        <span class="text-gray-700">9:00 AM - 11:00 AM</span>
+                        <div
+                          class="w-5 h-5 border border-gray-300 rounded-sm"
+                        ></div>
+                      </div>
+                      <div
+                        class="time-slot selected border border-gray-200 rounded-lg p-3 flex justify-between items-center"
+                      >
+                        <span class="text-gray-700">1:00 PM - 3:00 PM</span>
+                        <div
+                          class="w-5 h-5 bg-primary border border-primary rounded-sm flex items-center justify-center text-white"
+                        >
+                          <i class="ri-check-line ri-sm"></i>
+                        </div>
+                      </div>
+                      <div
+                        class="time-slot border border-gray-200 rounded-lg p-3 flex justify-between items-center"
+                      >
+                        <span class="text-gray-700">6:00 PM - 8:00 PM</span>
+                        <div
+                          class="w-5 h-5 border border-gray-300 rounded-sm"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 class="font-medium text-gray-900 mb-2">Friday</h4>
+                    <div class="space-y-2">
+                      <div
+                        class="time-slot unavailable border border-gray-200 rounded-lg p-3 flex justify-between items-center"
+                      >
+                        <span class="text-gray-700">9:00 AM - 11:00 AM</span>
+                        <span class="text-xs text-red-500">Full</span>
+                      </div>
+                      <div
+                        class="time-slot border border-gray-200 rounded-lg p-3 flex justify-between items-center"
+                      >
+                        <span class="text-gray-700">1:00 PM - 3:00 PM</span>
+                        <div
+                          class="w-5 h-5 border border-gray-300 rounded-sm"
+                        ></div>
+                      </div>
+                      <div
+                        class="time-slot selected border border-gray-200 rounded-lg p-3 flex justify-between items-center"
+                      >
+                        <span class="text-gray-700">6:00 PM - 8:00 PM</span>
+                        <div
+                          class="w-5 h-5 bg-primary border border-primary rounded-sm flex items-center justify-center text-white"
+                        >
+                          <i class="ri-check-line ri-sm"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-blue-50 p-4 rounded-lg flex items-start">
+                  <div
+                    class="w-5 h-5 flex items-center justify-center text-blue-500 mt-0.5 mr-2"
+                  >
+                    <i class="ri-information-line"></i>
+                  </div>
+                  <p class="text-sm text-blue-700">
+                    You've selected 2 of 2 required weekly sessions. Your course
+                    will run for 12 weeks from May 15 to August 7, 2025.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Time Zone Selection -->
+              <div class="mb-8">
+                <label
+                  for="timezone"
+                  class="block text-sm font-medium text-gray-700 mb-1"
+                  >Your Time Zone *</label
+                >
+                <div class="relative">
+                  <select
+                    id="timezone"
+                    name="timezone"
+                    class="w-full appearance-none px-4 py-2 border border-gray-300 !rounded-button pr-8"
+                    required
+                  >
+                    <option value="ET">Eastern Time (ET)</option>
+                    <option value="CT">Central Time (CT)</option>
+                    <option value="MT">Mountain Time (MT)</option>
+                    <option value="PT">Pacific Time (PT)</option>
+                    <option value="Other">Other</option>
+                  </select>
+                  <div
+                    class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
+                  >
+                    <i class="ri-arrow-down-s-line"></i>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex justify-between">
+                <button
+                  type="button"
+                  id="step4Prev"
+                  class="border border-gray-300 text-gray-700 px-6 py-3 !rounded-button font-medium hover:bg-gray-50 transition-all whitespace-nowrap"
+                >
+                  Back to Payment
+                </button>
+                <button
+                  type="button"
+                  id="step4Next"
+                  class="bg-primary text-white px-6 py-3 !rounded-button font-medium shadow-sm hover:bg-opacity-90 transition-all whitespace-nowrap"
+                >
+                  Review & Confirm
+                </button>
+              </div>
+            </div>
+
+            <!-- Step 5: Confirmation -->
+            <div class="form-step" id="step5">
+              <div class="text-center mb-8">
+                <div
+                  class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"
+                >
+                  <i class="ri-check-line ri-xl text-green-600"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-2">
+                  Enrollment Summary
+                </h2>
+                <p class="text-gray-600">
+                  Please review your enrollment details before confirming.
+                </p>
+              </div>
+
+              <div class="bg-gray-50 p-6 rounded-lg mb-8">
+                <h3 class="text-lg font-bold text-gray-900 mb-4">
+                  Course Details
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <div class="space-y-3">
+                      <div class="flex justify-between">
+                        <span class="text-gray-600">Course:</span>
+                        <span
+                          class="font-semibold text-gray-900"
+                          id="confirmCourseName"
+                          >Mathematics Foundation</span
+                        >
+                      </div>
+                      <div class="flex justify-between">
+                        <span class="text-gray-600">Duration:</span>
+                        <span
+                          class="font-semibold text-gray-900"
+                          id="confirmDuration"
+                          >12 Weeks</span
+                        >
+                      </div>
+                      <div class="flex justify-between">
+                        <span class="text-gray-600">Start Date:</span>
+                        <span class="font-semibold text-gray-900"
+                          >May 15, 2025</span
+                        >
+                      </div>
+                      <div class="flex justify-between">
+                        <span class="text-gray-600">End Date:</span>
+                        <span class="font-semibold text-gray-900"
+                          >August 7, 2025</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="space-y-3">
+                      <div class="flex justify-between">
+                        <span class="text-gray-600">Schedule:</span>
+                        <span class="font-semibold text-gray-900"
+                          >Wed 1-3 PM, Fri 6-8 PM</span
+                        >
+                      </div>
+                      <div class="flex justify-between">
+                        <span class="text-gray-600">Time Zone:</span>
+                        <span class="font-semibold text-gray-900"
+                          >Eastern Time (ET)</span
+                        >
+                      </div>
+                      <div class="flex justify-between">
+                        <span class="text-gray-600">Course Fee:</span>
+                        <span
+                          class="font-semibold text-gray-900"
+                          id="confirmPrice"
+                          >$899</span
+                        >
+                      </div>
+                      <div class="flex justify-between">
+                        <span class="text-gray-600">Registration Fee:</span>
+                        <span class="font-semibold text-gray-900">$50</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-4 pt-4 border-t border-gray-200">
+                  <div class="flex justify-between font-bold">
+                    <span class="text-gray-900">Total:</span>
+                    <span class="text-primary" id="confirmTotal">$949</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                <div>
+                  <h3 class="text-lg font-bold text-gray-900 mb-4">
+                    Personal Information
+                  </h3>
+                  <div class="space-y-3">
+                    <div class="flex justify-between">
+                      <span class="text-gray-600">Name:</span>
+                      <span class="font-semibold text-gray-900" id="confirmName"
+                        >John Doe</span
+                      >
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-gray-600">Email:</span>
+                      <span
+                        class="font-semibold text-gray-900"
+                        id="confirmEmail"
+                        >john.doe@example.com</span
+                      >
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-gray-600">Phone:</span>
+                      <span
+                        class="font-semibold text-gray-900"
+                        id="confirmPhone"
+                        >(123) 456-7890</span
+                      >
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-gray-600">Address:</span>
+                      <span
+                        class="font-semibold text-gray-900"
+                        id="confirmAddress"
+                        >123 Main St, New York, NY 10001</span
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold text-gray-900 mb-4">
+                    Payment Information
+                  </h3>
+                  <div class="space-y-3">
+                    <div class="flex justify-between">
+                      <span class="text-gray-600">Payment Method:</span>
+                      <span class="font-semibold text-gray-900"
+                        >Credit Card</span
+                      >
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-gray-600">Card Number:</span>
+                      <span class="font-semibold text-gray-900"
+                        >**** **** **** 1234</span
+                      >
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-gray-600">Name on Card:</span>
+                      <span
+                        class="font-semibold text-gray-900"
+                        id="confirmCardName"
+                        >John Doe</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-yellow-50 p-4 rounded-lg mb-8 flex items-start">
+                <div
+                  class="w-5 h-5 flex items-center justify-center text-yellow-500 mt-0.5 mr-2"
+                >
+                  <i class="ri-information-line"></i>
+                </div>
+                <div>
+                  <p class="text-sm text-yellow-700 mb-2">
+                    Important Information:
+                  </p>
+                  <ul class="text-sm text-yellow-700 list-disc pl-5 space-y-1">
+                    <li>
+                      You will receive a confirmation email with your enrollment
+                      details.
+                    </li>
+                    <li>
+                      Course materials will be available one week before your
+                      start date.
+                    </li>
+                    <li>
+                      Please arrive 15 minutes early for your first session.
+                    </li>
+                    <li>
+                      For any questions, please contact our support team at
+                      support@excellencecoaching.com.
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="flex items-start mb-8">
+                <input
+                  type="checkbox"
+                  id="confirmAgree"
+                  name="confirmAgree"
+                  class="custom-checkbox mt-1"
+                  required
+                />
+                <label for="confirmAgree" class="ml-2 text-sm text-gray-700"
+                  >I confirm that all the information provided is correct and I
+                  agree to complete the enrollment with the selected course,
+                  schedule, and payment method.</label
+                >
+              </div>
+
+              <div class="flex justify-between">
+                <button
+                  type="button"
+                  id="step5Prev"
+                  class="border border-gray-300 text-gray-700 px-6 py-3 !rounded-button font-medium hover:bg-gray-50 transition-all whitespace-nowrap"
+                >
+                  Back to Schedule
+                </button>
+                <button
+                  type="submit"
+                  id="confirmEnrollment"
+                  class="bg-primary text-white px-6 py-3 !rounded-button font-medium shadow-sm hover:bg-opacity-90 transition-all whitespace-nowrap"
+                >
+                  Confirm Enrollment
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Success Modal (Hidden by default) -->
+    <div
+      id="successModal"
+      class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden"
+    >
+      <div class="bg-white rounded-lg p-8 max-w-md w-full">
+        <div class="text-center mb-6">
+          <div
+            class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"
+          >
+            <i class="ri-check-line ri-2x text-green-600"></i>
+          </div>
+          <h2 class="text-2xl font-bold text-gray-900 mb-2">
+            Enrollment Successful!
+          </h2>
+          <p class="text-gray-600">
+            Thank you for enrolling in our Mathematics Foundation course.
+          </p>
+        </div>
+        <div class="bg-gray-50 p-4 rounded-lg mb-6">
+          <p class="text-gray-700 mb-2">
+            A confirmation email has been sent to
+            <span class="font-semibold" id="successEmail"
+              >john.doe@example.com</span
+            >
+            with all the details of your enrollment.
+          </p>
+          <p class="text-gray-700">
+            Your course begins on
+            <span class="font-semibold">Thursday, May 15, 2025</span>.
+          </p>
+        </div>
+        <div class="flex flex-col space-y-3">
+          <a
+            href="https://readdy.ai/home/a18ae8f9-3ebd-440a-abb1-618a16bae242/af9856d8-7432-477d-a922-431524dd228a"
+            data-readdy="true"
+            class="bg-primary text-white px-6 py-3 !rounded-button font-medium text-center shadow-sm hover:bg-opacity-90 transition-all whitespace-nowrap"
+            >Return to Foundation Courses</a
+          >
+          <button
+            id="closeModal"
+            class="border border-gray-300 text-gray-700 px-6 py-3 !rounded-button font-medium hover:bg-gray-50 transition-all whitespace-nowrap"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+          <!-- Column 1 -->
+          <div>
+            <h3 class="text-xl font-['Pacifico'] mb-4">logo</h3>
+            <p class="text-gray-400 mb-4">
+              Empowering individuals to achieve academic and professional
+              excellence through personalized coaching and proven methodologies.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-8 h-8 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors"
+              >
+                <i class="ri-facebook-fill ri-sm"></i>
+              </a>
+              <a
+                href="#"
+                class="w-8 h-8 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors"
+              >
+                <i class="ri-twitter-fill ri-sm"></i>
+              </a>
+              <a
+                href="#"
+                class="w-8 h-8 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors"
+              >
+                <i class="ri-instagram-fill ri-sm"></i>
+              </a>
+              <a
+                href="#"
+                class="w-8 h-8 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition-colors"
+              >
+                <i class="ri-linkedin-fill ri-sm"></i>
+              </a>
+            </div>
+          </div>
+          <!-- Column 2 -->
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="https://readdy.ai/home/a18ae8f9-3ebd-440a-abb1-618a16bae242/359214b3-f33a-48f8-963e-b01424b14574"
+                  data-readdy="true"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://readdy.ai/home/a18ae8f9-3ebd-440a-abb1-618a16bae242/b4deedfe-61a5-4318-987b-6cd624179211"
+                  data-readdy="true"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Programs</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://readdy.ai/home/a18ae8f9-3ebd-440a-abb1-618a16bae242/af9856d8-7432-477d-a922-431524dd228a"
+                  data-readdy="true"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Foundation Courses</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://readdy.ai/home/a18ae8f9-3ebd-440a-abb1-618a16bae242/0ffcedf8-05e4-4ec2-a513-df21217889fb"
+                  data-readdy="true"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+          <!-- Column 3 -->
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Contact Us</h4>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <div class="w-5 h-5 flex items-center justify-center mt-1 mr-2">
+                  <i class="ri-map-pin-line ri-sm"></i>
+                </div>
+                <span class="text-gray-400"
+                  >123 Education Avenue, New York, NY 10001</span
+                >
+              </li>
+              <li class="flex items-center">
+                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                  <i class="ri-phone-line ri-sm"></i>
+                </div>
+                <span class="text-gray-400">(123) 456-7890</span>
+              </li>
+              <li class="flex items-center">
+                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                  <i class="ri-mail-line ri-sm"></i>
+                </div>
+                <span class="text-gray-400">info@excellencecoaching.com</span>
+              </li>
+            </ul>
+          </div>
+          <!-- Column 4 -->
+          <div>
+            <h4 class="text-lg font-semibold mb-4">Subscribe</h4>
+            <p class="text-gray-400 mb-4">
+              Stay updated with our latest programs and success stories.
+            </p>
+            <div class="flex">
+              <input
+                type="email"
+                placeholder="Your email"
+                class="px-4 py-2 bg-gray-800 text-white border-none !rounded-button rounded-r-none w-full focus:bg-gray-700 transition-colors"
+              />
+              <button
+                class="bg-primary px-4 py-2 !rounded-button rounded-l-none whitespace-nowrap"
+              >
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="pt-8 border-t border-gray-800 text-center text-gray-400">
+          <div class="flex justify-center space-x-6 mb-4">
+            <i class="ri-visa-fill ri-lg"></i>
+            <i class="ri-mastercard-fill ri-lg"></i>
+            <i class="ri-paypal-fill ri-lg"></i>
+            <i class="ri-apple-fill ri-lg"></i>
+          </div>
+          <p>&copy; 2025 Excellence Coaching Institute. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Course selection
+        const courseCards = document.querySelectorAll(".course-card");
+        const step1Next = document.getElementById("step1Next");
+        const selectedCourseDetails = document.getElementById(
+          "selectedCourseDetails",
+        );
+
+        let selectedCourse = null;
+
+        courseCards.forEach((card) => {
+          card.addEventListener("click", function () {
+            courseCards.forEach((c) => c.classList.remove("selected"));
+            this.classList.add("selected");
+            selectedCourse = {
+              name: this.querySelector("h3").textContent,
+              price: this.dataset.price,
+              duration: this.querySelector(".text-gray-500").textContent,
+            };
+
+            // Update course details
+            document.getElementById("courseTitle").textContent = selectedCourse.name;
+            document.getElementById("courseFee").textContent =
+              `$${selectedCourse.price}`;
+            document.getElementById("courseTotal").textContent =
+              `$${selectedCourse.price}`;
+            document.getElementById("courseDuration").textContent =
+              selectedCourse.duration;
+
+            // Update topics based on selected course
+            if (this.dataset.course === "mathematics") {
+              document.getElementById("courseTopic1").textContent =
+                "Algebra & Functions";
+              document.getElementById("courseTopic2").textContent =
+                "Geometry & Trigonometry";
+              document.getElementById("courseTopic3").textContent =
+                "Calculus Fundamentals";
+              document.getElementById("courseDescription").textContent =
+                "Master essential mathematical concepts from algebra to calculus, building a strong foundation for advanced quantitative studies.";
+            } else if (this.dataset.course === "sciences") {
+              document.getElementById("courseTopic1").textContent =
+                "Physics Principles";
+              document.getElementById("courseTopic2").textContent =
+                "Chemical Foundations";
+              document.getElementById("courseTopic3").textContent =
+                "Biological Systems";
+              document.getElementById("courseDescription").textContent =
+                "Develop a comprehensive understanding of fundamental scientific principles across physics, chemistry, and biology.";
+            } else if (this.dataset.course === "language-arts") {
+              document.getElementById("courseTopic1").textContent =
+                "Reading Comprehension";
+              document.getElementById("courseTopic2").textContent =
+                "Writing & Composition";
+              document.getElementById("courseTopic3").textContent =
+                "Literary Analysis";
+              document.getElementById("courseDescription").textContent =
+                "Enhance your communication skills through comprehensive study of reading, writing, and analytical thinking.";
+            }
+
+            selectedCourseDetails.classList.remove("hidden");
+            step1Next.disabled = false;
+
+            // Update summary sections
+            document.getElementById("summaryCourseName").textContent =
+              selectedCourse.name;
+            document.getElementById("summaryPrice").textContent =
+              `$${selectedCourse.price}`;
+            document.getElementById("summaryTotal").textContent =
+              `$${parseInt(selectedCourse.price) + 50}`;
+
+            document.getElementById("confirmCourseName").textContent =
+              selectedCourse.name;
+            document.getElementById("confirmPrice").textContent =
+              `$${selectedCourse.price}`;
+            document.getElementById("confirmTotal").textContent =
+              `$${parseInt(selectedCourse.price) + 50}`;
+            document.getElementById("confirmDuration").textContent =
+              selectedCourse.duration;
+          });
+        });
+
+        // Payment method selection
+        const paymentMethods = document.querySelectorAll(".payment-method");
+        const creditCardForm = document.getElementById("creditCardForm");
+        const paypalForm = document.getElementById("paypalForm");
+        const applePayForm = document.getElementById("applePayForm");
+
+        paymentMethods.forEach((method) => {
+          method.addEventListener("click", function () {
+            // Update radio button
+            this.querySelector('input[type="radio"]').checked = true;
+
+            // Update styling
+            paymentMethods.forEach((m) => m.classList.remove("selected"));
+            this.classList.add("selected");
+
+            // Show/hide appropriate form
+            const paymentType = this.dataset.method;
+            creditCardForm.classList.add("hidden");
+            paypalForm.classList.add("hidden");
+            applePayForm.classList.add("hidden");
+
+            if (paymentType === "credit-card") {
+              creditCardForm.classList.remove("hidden");
+            } else if (paymentType === "paypal") {
+              paypalForm.classList.remove("hidden");
+            } else if (paymentType === "apple-pay") {
+              applePayForm.classList.remove("hidden");
+            }
+          });
+        });
+
+        // Calendar day selection
+        const calendarDays = document.querySelectorAll(
+          ".calendar-day:not(.day-disabled)",
+        );
+
+        calendarDays.forEach((day) => {
+          day.addEventListener("click", function () {
+            calendarDays.forEach((d) => d.classList.remove("day-selected"));
+            this.classList.add("day-selected");
+          });
+        });
+
+        // Time slot selection
+        const timeSlots = document.querySelectorAll(".time-slot:not(.unavailable)");
+        let selectedSlots = 0;
+
+        timeSlots.forEach((slot) => {
+          slot.addEventListener("click", function () {
+            const isSelected = this.classList.contains("selected");
+
+            if (isSelected) {
+              // Deselect
+              this.classList.remove("selected");
+              this.querySelector("div").classList.remove(
+                "bg-primary",
+                "border-primary",
+              );
+              this.querySelector("div").classList.add("border-gray-300");
+              if (this.querySelector("i")) {
+                this.querySelector("i").remove();
+              }
+              selectedSlots--;
+            } else if (selectedSlots < 2) {
+              // Select
+              this.classList.add("selected");
+              const checkbox = this.querySelector("div");
+              checkbox.classList.remove("border-gray-300");
+              checkbox.classList.add("bg-primary", "border-primary");
+              checkbox.innerHTML = '<i class="ri-check-line ri-sm text-white"></i>';
+              selectedSlots++;
+            }
+          });
+        });
+
+        // Multi-step form navigation
+        const formSteps = document.querySelectorAll(".form-step");
+        const progressSteps = document.querySelectorAll(".progress-step");
+
+        function goToStep(stepNumber) {
+          formSteps.forEach((step) => step.classList.remove("active"));
+          document.getElementById(`step${stepNumber}`).classList.add("active");
+
+          progressSteps.forEach((step, index) => {
+            if (index < stepNumber - 1) {
+              step.classList.add("completed");
+              step.classList.remove("active");
+            } else if (index === stepNumber - 1) {
+              step.classList.add("active");
+              step.classList.remove("completed");
+            } else {
+              step.classList.remove("active", "completed");
+            }
+          });
+
+          window.scrollTo(0, 0);
+        }
+
+        // Step navigation buttons
+        document.getElementById("step1Next").addEventListener("click", function () {
+          goToStep(2);
+        });
+
+        document.getElementById("step2Prev").addEventListener("click", function () {
+          goToStep(1);
+        });
+
+        document.getElementById("step2Next").addEventListener("click", function () {
+          // Update confirmation page with personal info
+          const firstName = document.getElementById("firstName").value;
+          const lastName = document.getElementById("lastName").value;
+          const email = document.getElementById("email").value;
+          const phone = document.getElementById("phone").value;
+          const address = document.getElementById("address").value;
+          const city = document.getElementById("city").value;
+          const zipCode = document.getElementById("zipCode").value;
+
+          document.getElementById("confirmName").textContent =
+            `${firstName} ${lastName}`;
+          document.getElementById("confirmEmail").textContent = email;
+          document.getElementById("confirmPhone").textContent = phone;
+          document.getElementById("confirmAddress").textContent =
+            `${address}, ${city}, ${zipCode}`;
+          document.getElementById("successEmail").textContent = email;
+
+          goToStep(3);
+        });
+
+        document.getElementById("step3Prev").addEventListener("click", function () {
+          goToStep(2);
+        });
+
+        document.getElementById("step3Next").addEventListener("click", function () {
+          // Update confirmation page with card info
+          const cardName = document.getElementById("cardName").value;
+          document.getElementById("confirmCardName").textContent = cardName;
+
+          goToStep(4);
+        });
+
+        document.getElementById("step4Prev").addEventListener("click", function () {
+          goToStep(3);
+        });
+
+        document.getElementById("step4Next").addEventListener("click", function () {
+          goToStep(5);
+        });
+
+        document.getElementById("step5Prev").addEventListener("click", function () {
+          goToStep(4);
+        });
+
+        // Form submission
+        document
+          .getElementById("enrollmentForm")
+          .addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            // Show success modal
+            document.getElementById("successModal").classList.remove("hidden");
+          });
+
+        // Close modal
+        document.getElementById("closeModal").addEventListener("click", function () {
+          document.getElementById("successModal").classList.add("hidden");
+        });
+      });
+    </script>
+  </body>
+</html>

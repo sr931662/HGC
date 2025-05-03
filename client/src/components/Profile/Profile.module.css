@@ -1,0 +1,153 @@
+.profileContainer {
+    min-height: 100vh;
+    background-color: #f9fafb;
+    color: #1f2937;
+  }
+  
+  /* Navigation */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background-color: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navContainer {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #2563eb;
+  }
+  
+  .navLinks {
+    display: none;
+  }
+  
+  .navLinks a {
+    margin: 0 0.5rem;
+    color: #4b5563;
+    transition: color 0.2s;
+  }
+  
+  .navLinks a:hover {
+    color: #2563eb;
+  }
+  
+  .mobileMenuButton {
+    color: #4b5563;
+    font-size: 1.25rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Main Content */
+  .mainContent {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  
+  .section {
+    margin-bottom: 4rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+  }
+  
+  .section h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: #1f2937;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 0.5rem;
+  }
+  
+  /* Two Column Layout */
+  .twoColumnGrid {
+    display: grid;
+    gap: 2rem;
+  }
+  
+  /* Profile Header */
+  .profileHeader {
+    position: relative;
+    height: 16rem;
+    background: linear-gradient(to right, #3b82f6, #6366f1);
+    margin-bottom: 5rem;
+  }
+  
+  /* Add more styles for other components... */
+  
+  /* Floating Buttons */
+  .floatingButtons {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .chatButton, .scrollTopButton {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s;
+  }
+  
+  .chatButton {
+    background-color: #2563eb;
+    color: white;
+  }
+  
+  .chatButton:hover {
+    background-color: #1d4ed8;
+  }
+  
+  .scrollTopButton {
+    background-color: #374151;
+    color: white;
+  }
+  
+  .scrollTopButton:hover {
+    background-color: #1f2937;
+  }
+  
+  /* Responsive Design */
+  @media (min-width: 768px) {
+    .navLinks {
+      display: flex;
+    }
+    
+    .mobileMenuButton {
+      display: none;
+    }
+    
+    .twoColumnGrid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .mainContent {
+      padding: 2rem;
+    }
+  }

@@ -1,0 +1,1389 @@
+/* Base styles */
+.body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f9fafb;
+    min-height: 100vh;
+  }
+  
+  /* Navigation */
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    z-index: 50;
+  }
+  
+  .navContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .navLeft {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-family: 'Pacifico', cursive;
+    color: #4F46E5;
+    text-decoration: none;
+  }
+  
+  .navLinks {
+    display: none;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  @media (min-width: 768px) {
+    .navLinks {
+      display: flex;
+    }
+  }
+  
+  .navLink {
+    color: #1f2937;
+    font-weight: 500;
+    transition: color 0.2s;
+    text-decoration: none;
+  }
+  
+  .navLink:hover {
+    color: #4F46E5;
+  }
+  
+  .backLink {
+    display: flex;
+    align-items: center;
+    color: #374151;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  
+  .backLink:hover {
+    color: #4F46E5;
+  }
+  
+  .backIcon {
+    margin-right: 0.25rem;
+  }
+  
+  .mobileMenu {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  @media (min-width: 768px) {
+    .mobileMenu {
+      display: none;
+    }
+  }
+  
+  .menuIcon {
+    color: #1f2937;
+    font-size: 1.5rem;
+  }
+  
+  /* Enrollment Section */
+  .enrollSection {
+    padding-top: 7rem;
+    padding-bottom: 5rem;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .header h1 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .header h1 {
+      font-size: 2.25rem;
+    }
+  }
+  
+  .header p {
+    color: #4b5563;
+    max-width: 42rem;
+    margin: 0 auto;
+  }
+  
+  /* Progress Steps */
+  .progressContainer {
+    max-width: 56rem;
+    margin: 0 auto 3rem;
+  }
+  
+  .progressSteps {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .progressStep {
+    position: relative;
+    width: 20%;
+    text-align: center;
+  }
+  
+  .progressStep::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: calc(100% + 0.5rem);
+    width: calc(100% - 2.5rem);
+    height: 2px;
+    background-color: #e5e7eb;
+    transform: translateY(-50%);
+  }
+  
+  .progressStep:last-child::after {
+    display: none;
+  }
+  
+  .stepNumber {
+    margin: 0 auto;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 9999px;
+    background-color: #e5e7eb;
+    color: #374151;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .stepNumber.activeStep {
+    background-color: #4F46E5;
+    color: white;
+  }
+  
+  .progressStep.completed .stepNumber {
+    background-color: #4F46E5;
+    color: white;
+  }
+  
+  .progressStep.completed::after {
+    background-color: #4F46E5;
+  }
+  
+  .progressStep span {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #6b7280;
+  }
+  
+  .progressStep.active span,
+  .progressStep.completed span {
+    color: #111827;
+  }
+  
+  /* Enrollment Form */
+  .enrollFormContainer {
+    max-width: 56rem;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+  }
+  
+  .formStep {
+    display: none;
+  }
+  
+  .formStep.active {
+    display: block;
+  }
+  
+  .formStep h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1.5rem;
+  }
+  
+  .formStep p {
+    color: #4b5563;
+    margin-bottom: 2rem;
+  }
+  
+  /* Course Selection */
+  .courseGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  @media (min-width: 768px) {
+    .courseGrid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .courseCard {
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .courseCard:hover {
+    transform: translateY(-0.3125rem);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+  
+  .courseCard.selected {
+    border-color: #4F46E5;
+    background-color: #f5f5ff;
+  }
+  
+  .courseImage {
+    height: 10rem;
+    overflow: hidden;
+  }
+  
+  .courseImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .courseInfo {
+    padding: 1rem;
+  }
+  
+  .courseInfo h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.25rem;
+  }
+  
+  .courseInfo p {
+    font-size: 0.875rem;
+    color: #4b5563;
+    margin-bottom: 0.5rem;
+  }
+  
+  .courseMeta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .coursePrice {
+    color: #4F46E5;
+    font-weight: 700;
+  }
+  
+  .courseDuration {
+    color: #6b7280;
+    font-size: 0.875rem;
+  }
+  
+  /* Selected Course Details */
+  .selectedCourseDetails {
+    background-color: #f9fafb;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+    display: block;
+  }
+  
+  .selectedCourseDetails h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1rem;
+  }
+  
+  .courseDetailsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  @media (min-width: 768px) {
+    .courseDetailsGrid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  .courseDetailsGrid h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 0.5rem;
+  }
+  
+  .courseDetailsGrid p {
+    color: #4b5563;
+    margin-bottom: 1rem;
+  }
+  
+  .courseTopics {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .topicItem {
+    display: flex;
+    align-items: center;
+  }
+  
+  .topicIcon {
+    width: 1.25rem;
+    height: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4F46E5;
+    margin-right: 0.5rem;
+  }
+  
+  .courseSummary {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #e5e7eb;
+  }
+  
+  .courseSummary h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 0.5rem;
+  }
+  
+  .summaryItems {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  .summaryItem {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .summaryTotal {
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+  }
+  
+  .summaryTotal span:first-child {
+    color: #111827;
+  }
+  
+  .summaryTotal span:last-child {
+    color: #4F46E5;
+  }
+  
+  /* Form Grid */
+  .formGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  @media (min-width: 768px) {
+    .formGrid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  .fullWidth {
+    grid-column: 1 / -1;
+  }
+  
+  label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 0.25rem;
+  }
+  
+  input, select, textarea {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+  }
+  
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #4F46E5;
+  }
+  
+  /* Select Wrapper */
+  .selectWrapper {
+    position: relative;
+  }
+  
+  .selectWrapper select {
+    appearance: none;
+    padding-right: 2rem;
+  }
+  
+  .selectIcon {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #6b7280;
+  }
+  
+  /* Checkbox and Radio */
+  .checkboxWrapper {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+  }
+  
+  .customCheckbox {
+    appearance: none;
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid #d1d5db;
+    border-radius: 0.25rem;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-right: 0.5rem;
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+  }
+  
+  .customCheckbox:checked {
+    background-color: #4F46E5;
+    border-color: #4F46E5;
+  }
+  
+  .customCheckbox:checked::after {
+    content: "";
+    position: absolute;
+    left: 0.375rem;
+    top: 0.125rem;
+    width: 0.375rem;
+    height: 0.625rem;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  
+  .customRadio {
+    appearance: none;
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid #d1d5db;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .customRadio:checked {
+    border-color: #4F46E5;
+  }
+  
+  .customRadio:checked::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: 50%;
+    background-color: #4F46E5;
+    transform: translate(-50%, -50%);
+  }
+  
+  /* Payment Methods */
+  .paymentMethods {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  @media (min-width: 768px) {
+    .paymentMethods {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .paymentMethod {
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .paymentMethod.selected {
+    border-color: #4F46E5;
+    background-color: #f5f5ff;
+  }
+  
+  .paymentRadio {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .paymentRadio label {
+    margin-left: 0.5rem;
+    font-weight: 500;
+    color: #111827;
+    margin-bottom: 0;
+  }
+  
+  .paymentIcons {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .paymentIcon {
+    font-size: 1.5rem;
+  }
+  
+  /* Payment Forms */
+  .paymentForm {
+    margin-bottom: 2rem;
+  }
+  
+  .inputWithIcon {
+    position: relative;
+  }
+  
+  .inputIcon {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+  }
+  
+  .paypalContainer, .applePayContainer {
+    background-color: #eff6ff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    text-align: center;
+  }
+  
+  .paypalIcon {
+    font-size: 3rem;
+    color: #1e40af;
+    margin-bottom: 1rem;
+  }
+  
+  .applePayContainer {
+    background-color: #f3f4f6;
+  }
+  
+  .applePayIcon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .paypalButton {
+    background-color: #1e40af;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .paypalButton:hover {
+    background-color: #1e3a8a;
+  }
+  
+  .applePayButton {
+    background-color: #000;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .applePayButton:hover {
+    background-color: #111827;
+  }
+  
+  /* Order Summary */
+  .orderSummary {
+    background-color: #f9fafb;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .orderSummary h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1rem;
+  }
+  
+  .summaryItems {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  .summaryItem {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .summaryItem span:first-child {
+    color: #4b5563;
+  }
+  
+  .summaryItem span:last-child {
+    font-weight: 600;
+    color: #111827;
+  }
+  
+  .summaryTotal {
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+  }
+  
+  .summaryTotal span:first-child {
+    color: #111827;
+  }
+  
+  .summaryTotal span:last-child {
+    color: #4F46E5;
+  }
+  
+  /* Security Info */
+  .securityInfo {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+  }
+  
+  .securityIcon {
+    width: 3rem;
+    height: 3rem;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #dcfce7;
+    border-radius: 9999px;
+    margin-right: 1rem;
+    color: #16a34a;
+    font-size: 1.5rem;
+  }
+  
+  .securityInfo h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 0.25rem;
+  }
+  
+  .securityInfo p {
+    font-size: 0.875rem;
+    color: #4b5563;
+    margin-bottom: 0;
+  }
+  
+  /* Calendar Section */
+  .calendarSection {
+    margin-bottom: 2rem;
+  }
+  
+  .calendarHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .calendarHeader h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111827;
+  }
+  
+  .calendarNav {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .calendarNav button {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    transition: background-color 0.2s;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  
+  .calendarNav button:hover {
+    background-color: #f3f4f6;
+  }
+  
+  .calendarGrid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .calendarDayHeader {
+    text-align: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #6b7280;
+  }
+  
+  .calendarDay {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin: 0 auto;
+  }
+  
+  .calendarDay:hover:not(.dayDisabled) {
+    background-color: #f5f5ff;
+  }
+  
+  .calendarDay.daySelected {
+    background-color: #4F46E5;
+    color: white;
+  }
+  
+  .calendarDay.dayDisabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+  
+  .calendarNote {
+    font-size: 0.875rem;
+    color: #4b5563;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Time Slots */
+  .timeSlotsSection {
+    margin-bottom: 2rem;
+  }
+  
+  .timeSlotsSection h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 1rem;
+  }
+  
+  .timeSlotsSection p {
+    font-size: 0.875rem;
+    color: #4b5563;
+    margin-bottom: 1rem;
+  }
+  
+  .timeSlotsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  @media (min-width: 768px) {
+    .timeSlotsGrid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .timeSlotDay {
+    margin-bottom: 1rem;
+  }
+  
+  .timeSlotDay h4 {
+    font-weight: 500;
+    color: #111827;
+    margin-bottom: 0.5rem;
+  }
+  
+  .slotsList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .timeSlot {
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+  
+  .timeSlot:hover {
+    border-color: #4F46E5;
+  }
+  
+  .timeSlot.selected {
+    border-color: #4F46E5;
+    background-color: #f5f5ff;
+  }
+  
+  .timeSlot.unavailable {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .slotCheckbox {
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .timeSlot.selected .slotCheckbox {
+    background-color: #4F46E5;
+    border-color: #4F46E5;
+  }
+  
+  .slotCheckIcon {
+    color: white;
+    font-size: 0.875rem;
+  }
+  
+  .slotStatus {
+    font-size: 0.75rem;
+    color: #ef4444;
+  }
+  
+  .timeSlotInfo {
+    background-color: #eff6ff;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .infoIcon {
+    color: #3b82f6;
+    margin-right: 0.5rem;
+    margin-top: 0.125rem;
+    flex-shrink: 0;
+  }
+  
+  .timeSlotInfo p {
+    font-size: 0.875rem;
+    color: #1e40af;
+    margin-bottom: 0;
+  }
+  
+  /* Timezone Section */
+  .timezoneSection {
+    margin-bottom: 2rem;
+  }
+  
+  /* Confirmation Section */
+  .confirmationHeader {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .successIcon {
+    width: 4rem;
+    height: 4rem;
+    background-color: #dcfce7;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    color: #16a34a;
+    font-size: 1.5rem;
+  }
+  
+  .confirmationHeader h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.5rem;
+  }
+  
+  .confirmationHeader p {
+    color: #4b5563;
+    margin-bottom: 0;
+  }
+  
+  .confirmationDetails {
+    background-color: #f9fafb;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .confirmationDetails h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1rem;
+  }
+  
+  .detailsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  @media (min-width: 768px) {
+    .detailsGrid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  .detailItem {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+  }
+  
+  .detailItem span:first-child {
+    color: #4b5563;
+  }
+  
+  .detailItem span:last-child {
+    font-weight: 600;
+    color: #111827;
+  }
+  
+  .confirmationTotal {
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+  }
+  
+  .confirmationTotal span:first-child {
+    color: #111827;
+  }
+  
+  .confirmationTotal span:last-child {
+    color: #4F46E5;
+  }
+  
+  .confirmationGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  @media (min-width: 768px) {
+    .confirmationGrid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  .confirmationGrid h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1rem;
+  }
+  
+  .importantInfo {
+    background-color: #fffbeb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+  }
+  
+  .importantInfo .infoIcon {
+    color: #d97706;
+  }
+  
+  .importantInfo p {
+    font-size: 0.875rem;
+    color: #92400e;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  .importantInfo ul {
+    font-size: 0.875rem;
+    color: #92400e;
+    padding-left: 1.25rem;
+    margin-bottom: 0;
+  }
+  
+  .importantInfo li {
+    margin-bottom: 0.25rem;
+  }
+  
+  /* Form Actions */
+  .formActions {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .formActionsBetween {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .primaryButton {
+    background-color: #4F46E5;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  
+  .primaryButton:hover {
+    background-color: rgba(79, 70, 229, 0.9);
+  }
+  
+  .primaryButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .secondaryButton {
+    border: 1px solid #d1d5db;
+    color: #374151;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    background: none;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  
+  .secondaryButton:hover {
+    background-color: #f9fafb;
+  }
+  
+  .link {
+    color: #4F46E5;
+    text-decoration: none;
+  }
+  
+  .link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Footer */
+  .footer {
+    background-color: #111827;
+    color: white;
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+  }
+  
+  .footerContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  
+  .footerGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  @media (min-width: 768px) {
+    .footerGrid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  .footerLogo {
+    font-size: 1.25rem;
+    font-family: 'Pacifico', cursive;
+    margin-bottom: 1rem;
+  }
+  
+  .footerText {
+    color: #9ca3af;
+    margin-bottom: 1rem;
+  }
+  
+  .socialLinks {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .socialLink {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1f2937;
+    border-radius: 9999px;
+    transition: background-color 0.2s;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .socialLink:hover {
+    background-color: #4F46E5;
+  }
+  
+  .footerHeading {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  .footerList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .footerList a {
+    color: #9ca3af;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  
+  .footerList a:hover {
+    color: white;
+  }
+  
+  .footerContactItem {
+    display: flex;
+    align-items: flex-start;
+    color: #9ca3af;
+    margin-bottom: 0.5rem;
+  }
+  
+  .contactIcon {
+    margin-right: 0.5rem;
+    margin-top: 0.125rem;
+  }
+  
+  .subscribeForm {
+    display: flex;
+  }
+  
+  .subscribeInput {
+    padding: 0.5rem 1rem;
+    background-color: #1f2937;
+    color: white;
+    border: none;
+    border-radius: 0.5rem 0 0 0.5rem;
+    width: 100%;
+  }
+  
+  .subscribeInput:focus {
+    background-color: #374151;
+    outline: none;
+  }
+  
+  .subscribeButton {
+    background-color: #4F46E5;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0 0.5rem 0.5rem 0;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  
+  .footerBottom {
+    padding-top: 2rem;
+    border-top: 1px solid #1f2937;
+    text-align: center;
+    color: #9ca3af;
+  }
+  
+  .paymentMethods {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .paymentIcon {
+    font-size: 1.5rem;
+  }
+  
+  /* Success Modal */
+  .modalOverlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+  }
+  
+  .modalContent {
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    max-width: 28rem;
+    width: 100%;
+  }
+  
+  .modalHeader {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .modalSuccessIcon {
+    width: 4rem;
+    height: 4rem;
+    background-color: #dcfce7;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    color: #16a34a;
+    font-size: 2rem;
+  }
+  
+  .modalHeader h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.5rem;
+  }
+  
+  .modalHeader p {
+    color: #4b5563;
+    margin-bottom: 0;
+  }
+  
+  .modalBody {
+    background-color: #f9fafb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .modalBody p {
+    color: #374151;
+    margin-bottom: 0.5rem;
+  }
+  
+  .modalBody p:last-child {
+    margin-bottom: 0;
+  }
+  
+  .modalBody strong {
+    font-weight: 600;
+  }
+  
+  .modalActions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .modalPrimaryButton {
+    background-color: #4F46E5;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  
+  .modalPrimaryButton:hover {
+    background-color: rgba(79, 70, 229, 0.9);
+  }
+  
+  .modalSecondaryButton {
+    border: 1px solid #d1d5db;
+    color: #374151;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    background: none;
+    cursor: pointer;
+  }
+  
+  .modalSecondaryButton:hover {
+    background-color: #f9fafb;
+  }

@@ -1,0 +1,555 @@
+/* Base Styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  
+  .section {
+    padding: 4rem 0;
+  }
+  
+  .sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .sectionTitle {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1rem;
+  }
+  
+  .sectionSubtitle {
+    color: #4B5563;
+    max-width: 42rem;
+    margin: 0 auto;
+  }
+  
+  .sectionText {
+    color: #374151;
+    margin-bottom: 1.5rem;
+  }
+  
+  .textCenter {
+    text-align: center;
+  }
+  
+  /* Hero Section */
+  .hero {
+    padding-top: 7rem;
+    padding-bottom: 5rem;
+    background-image: url('https://readdy.ai/api/search-image?query=Modern%2520educational%2520campus%2520with%2520diverse%2520students%2520and%2520faculty%2520walking%2520through%2520a%2520beautiful%2520courtyard%2520with%2520trees%2520and%2520modern%2520architecture.%2520Bright%2520natural%2520lighting%2520with%2520a%2520soft%2520gradient%2520on%2520the%2520left%2520side%2520fading%2520to%2520white%2520for%2520text%2520overlay.%2520Professional%2520photography%2520with%2520shallow%2520depth%2520of%2520field.%2520The%2520left%2520side%2520must%2520have%2520a%2520clean%2520light%2520background%2520for%2520text%2520readability.&width=1400&height=600&seq=1001&orientation=landscape');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  
+  .heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, white, rgba(255, 255, 255, 0.8), transparent);
+  }
+  
+  .heroContent {
+    position: relative;
+    max-width: 42rem;
+  }
+  
+  .heroTitle {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1.5rem;
+  }
+  
+  @media (min-width: 768px) {
+    .heroTitle {
+      font-size: 3.75rem;
+    }
+  }
+  
+  .heroSubtitle {
+    font-size: 1.25rem;
+    color: #374151;
+    margin-bottom: 2rem;
+  }
+  
+  .heroButton {
+    background-color: #4F46E5;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+  
+  .heroButton:hover {
+    background-color: #4338CA;
+  }
+  
+  /* Grid Layouts */
+  .grid2Col {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  @media (min-width: 768px) {
+    .grid2Col {
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+    }
+  }
+  
+  /* Mission & Values */
+  .missionImage {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  
+  .valuesContainer {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .valueItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .valueIcon {
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(79, 70, 229, 0.1);
+    border-radius: 9999px;
+    color: #4F46E5;
+    flex-shrink: 0;
+  }
+  
+  .valueTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 0.5rem;
+  }
+  
+  .valueDescription {
+    color: #4B5563;
+  }
+  
+  /* Timeline Section */
+  .historySection {
+    background-color: #F9FAFB;
+  }
+  
+  .timelineContainer {
+    position: relative;
+    max-width: 56rem;
+    margin: 0 auto;
+  }
+  
+  .timelineContainer::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: #E5E7EB;
+    transform: translateX(-50%);
+  }
+  
+  .timelineItem {
+    position: relative;
+    padding-left: 2rem;
+    padding-bottom: 3rem;
+    margin-left: 50%;
+  }
+  
+  .timelineItem:last-child {
+    padding-bottom: 0;
+  }
+  
+  .timelineItem::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 1.5rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    background-color: #4F46E5;
+    transform: translateX(-50%);
+  }
+  
+  .timelineContent {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .timelineYear {
+    display: inline-block;
+    background-color: rgba(79, 70, 229, 0.1);
+    color: #4F46E5;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  
+  .timelineTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.5rem;
+  }
+  
+  .timelineDescription {
+    color: #4B5563;
+  }
+  
+  /* Team Section */
+  .teamGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  @media (min-width: 640px) {
+    .teamGrid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .teamGrid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  .teamCard {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .teamCard:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+  
+  .teamImageContainer {
+    height: 16rem;
+    overflow: hidden;
+  }
+  
+  .teamImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+  
+  .teamContent {
+    padding: 1.5rem;
+  }
+  
+  .teamName {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.25rem;
+  }
+  
+  .teamRole {
+    color: #4F46E5;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  
+  .teamBio {
+    color: #4B5563;
+    margin-bottom: 1.5rem;
+  }
+  
+  .socialLinks {
+    display: flex;
+    gap: 0.75rem;
+  }
+  
+  .socialLink {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F3F4F6;
+    border-radius: 9999px;
+    color: #4B5563;
+    transition: all 0.3s ease;
+  }
+  
+  .socialLink:hover {
+    background-color: #4F46E5;
+    color: white;
+  }
+  
+  /* Methodology Section */
+  .methodologySection {
+    background-color: #F9FAFB;
+  }
+  
+  .methodologyGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  @media (min-width: 768px) {
+    .methodologyGrid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .methodologyCard {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .methodologyIcon {
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(79, 70, 229, 0.1);
+    border-radius: 9999px;
+    color: #4F46E5;
+    margin-bottom: 1.5rem;
+  }
+  
+  .methodologyTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1rem;
+  }
+  
+  .methodologyDescription {
+    color: #4B5563;
+    margin-bottom: 1.5rem;
+  }
+  
+  .successRate {
+    display: flex;
+    align-items: center;
+    color: #4F46E5;
+    font-weight: 500;
+  }
+  
+  .progressBar {
+    width: 6rem;
+    height: 0.25rem;
+    background-color: #E5E7EB;
+    border-radius: 9999px;
+    margin-left: 0.75rem;
+  }
+  
+  .progressFill {
+    height: 100%;
+    background-color: #4F46E5;
+    border-radius: 9999px;
+  }
+  
+  /* Testimonials */
+  .testimonialsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  @media (min-width: 768px) {
+    .testimonialsGrid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .testimonialsGrid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  .testimonialCard {
+    background-color: #F9FAFB;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .testimonialCard:hover {
+    transform: translateY(-0.25rem);
+  }
+  
+  .testimonialHeader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .testimonialImage {
+    width: 4rem;
+    height: 4rem;
+    background-color: #E5E7EB;
+    border-radius: 9999px;
+    overflow: hidden;
+    margin-right: 1rem;
+  }
+  
+  .testimonialImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+  
+  .testimonialName {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111827;
+  }
+  
+  .testimonialRole {
+    font-size: 0.875rem;
+    color: #6B7280;
+  }
+  
+  .testimonialContent {
+    color: #374151;
+    margin-bottom: 1rem;
+  }
+  
+  .testimonialRating {
+    display: flex;
+  }
+  
+  .testimonialRating i {
+    color: #F59E0B;
+    margin-right: 0.25rem;
+  }
+  
+  .textLink {
+    color: #4F46E5;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .textLink:hover {
+    text-decoration: underline;
+  }
+  
+  /* CTA Section */
+  .ctaSection {
+    padding: 4rem 0;
+    background-color: #4F46E5;
+    text-align: center;
+  }
+  
+  .ctaContent {
+    max-width: 56rem;
+    margin: 0 auto;
+  }
+  
+  .ctaTitle {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1rem;
+  }
+  
+  .ctaSubtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+  }
+  
+  .ctaButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  @media (min-width: 640px) {
+    .ctaButtons {
+      flex-direction: row;
+    }
+  }
+  
+  .primaryButton {
+    background-color: white;
+    color: #4F46E5;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1.125rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+  }
+  
+  .primaryButton:hover {
+    background-color: #F3F4F6;
+  }
+  
+  .secondaryButton {
+    background-color: white;
+    border: 1px solid #4F46E5;
+    color: #4F46E5;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+  
+  .secondaryButton:hover {
+    background-color: #4F46E5;
+    color: white;
+  }
+  
+  .outlineButton {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1.125rem;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+  }
+  
+  .outlineButton:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }

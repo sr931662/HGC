@@ -1,0 +1,78 @@
+.hero {
+    padding-top: 6rem;
+    padding-bottom: 4rem;
+    background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+  }
+  
+  .container {
+    max-width: 90rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  
+  @media (min-width: 1024px) {
+    .grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  .title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #111827;
+    line-height: 1.25;
+    margin-bottom: 1.5rem;
+  }
+  
+  @media (min-width: 640px) {
+    .title {
+      font-size: 3rem;
+    }
+  }
+  
+  .subtitle {
+    font-size: 1.125rem;
+    color: #4b5563;
+    margin-bottom: 2rem;
+  }
+  
+  .buttonGroup {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .button {
+    padding: 0.75rem 2rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+    border-radius: 0.5rem;
+  }
+  
+  .primary {
+    background-color: #4F46E5;
+    color: white;
+    border: none;
+  }
+  
+  .secondary {
+    background-color: transparent;
+    color: #4F46E5;
+    border: 2px solid #4F46E5;
+  }
+  
+  .imageContainer {
+    position: relative;
+  }
+  
+  .image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }

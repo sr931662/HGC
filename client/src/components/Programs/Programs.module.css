@@ -1,0 +1,942 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  /* Navigation */
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    z-index: 50;
+  }
+  
+  .navContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 24px;
+  }
+  
+  .navLogo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logoText {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.5rem;
+    color: #4F46E5;
+    text-decoration: none;
+  }
+  
+  .navLinks {
+    display: none;
+    align-items: center;
+    gap: 32px;
+  }
+  
+  @media (min-width: 768px) {
+    .navLinks {
+      display: flex;
+    }
+  }
+  
+  .navLink {
+    color: #1F2937;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .navLink:hover {
+    color: #4F46E5;
+  }
+  
+  .activeLink {
+    color: #4F46E5;
+  }
+  
+  .enrollButton {
+    background-color: #4F46E5;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+  }
+  
+  .enrollButton:hover {
+    background-color: #4338CA;
+  }
+  
+  .mobileMenu {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Programs Header */
+  .programsHeader {
+    padding-top: 112px;
+    padding-bottom: 48px;
+    background-color: white;
+  }
+  
+  .headerContent {
+    text-align: center;
+  }
+  
+  .headerTitle {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 16px;
+  }
+  
+  .headerSubtitle {
+    font-size: 1.125rem;
+    color: #4B5563;
+    max-width: 672px;
+    margin: 0 auto;
+  }
+  
+  /* Program Categories */
+  .categoriesSection {
+    padding-bottom: 48px;
+    background-color: white;
+  }
+  
+  .categoriesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+  
+  .categoryButton {
+    padding: 8px 24px;
+    border-radius: 8px;
+    border: 1px solid #4F46E5;
+    background-color: white;
+    color: #1F2937;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+  
+  .categoryButton:hover {
+    background-color: #4F46E5;
+    color: white;
+  }
+  
+  .activeCategory {
+    background-color: #4F46E5;
+    color: white;
+  }
+  
+  /* Program Listings */
+  .programsSection {
+    padding-bottom: 64px;
+    background-color: #F9FAFB;
+  }
+  
+  .programsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  
+  @media (min-width: 768px) {
+    .programsGrid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  .programCard {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .programCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+  
+  .programImageContainer {
+    height: 192px;
+    overflow: hidden;
+  }
+  
+  .programImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+  
+  .programContent {
+    padding: 24px;
+  }
+  
+  .programHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+  }
+  
+  .programTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+  }
+  
+  .programCategory {
+    background-color: rgba(79, 70, 229, 0.1);
+    color: #4F46E5;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+  
+  .programDetails {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 16px;
+  }
+  
+  .detailItem {
+    display: flex;
+    align-items: center;
+  }
+  
+  .detailItem i {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    color: #4F46E5;
+  }
+  
+  .programDescription {
+    color: #4B5563;
+    margin-bottom: 24px;
+  }
+  
+  .programFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .programPrice {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+  }
+  
+  .viewDetailsButton {
+    background-color: #4F46E5;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+  }
+  
+  .viewDetailsButton:hover {
+    background-color: #4338CA;
+  }
+  
+  /* Modal Styles */
+  .modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modalContent {
+    background-color: white;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 896px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  
+  .modalHeader {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    padding: 16px;
+    border-bottom: 1px solid #E5E7EB;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .modalTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+  }
+  
+  .closeModalButton {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6B7280;
+  }
+  
+  .closeModalButton:hover {
+    color: #4B5563;
+  }
+  
+  .modalBody {
+    padding: 24px;
+  }
+  
+  .modalGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 32px;
+  }
+  
+  @media (min-width: 768px) {
+    .modalGrid {
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+  
+  .modalImage {
+    width: 100%;
+    height: 256px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 8px;
+  }
+  
+  .section {
+    margin-top: 32px;
+  }
+  
+  .sectionTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 16px;
+  }
+  
+  .sectionText {
+    color: #4B5563;
+    margin-bottom: 16px;
+  }
+  
+  .featureList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .featureItem {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .featureItem i {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+    margin-right: 8px;
+    color: #4F46E5;
+  }
+  
+  .featureTitle {
+    font-weight: 500;
+    color: #111827;
+  }
+  
+  .outcomeList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .outcomeItem {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .outcomeItem i {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+    margin-right: 8px;
+    color: #4F46E5;
+  }
+  
+  /* Sidebar Styles */
+  .modalSidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  
+  .detailsCard {
+    background-color: #F9FAFB;
+    padding: 24px;
+    border-radius: 8px;
+  }
+  
+  .detailsTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 16px;
+  }
+  
+  .detailsGrid {
+    display: grid;
+    gap: 16px;
+  }
+  
+  .detail {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .detailLabel {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #6B7280;
+    margin-bottom: 4px;
+  }
+  
+  .detailValue {
+    color: #111827;
+  }
+  
+  .detailPrice {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #4F46E5;
+  }
+  
+  .buttonGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 24px;
+  }
+  
+  .primaryButton {
+    width: 100%;
+    background-color: #4F46E5;
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+  
+  .primaryButton:hover {
+    background-color: #4338CA;
+  }
+  
+  .secondaryButton {
+    width: 100%;
+    background-color: white;
+    border: 1px solid #4F46E5;
+    color: #4F46E5;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+  
+  .secondaryButton:hover {
+    background-color: #F9FAFB;
+  }
+  
+  .instructorSection {
+    margin-top: 32px;
+  }
+  
+  .instructorTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 16px;
+  }
+  
+  .instructorProfile {
+    display: flex;
+    align-items: center;
+  }
+  
+  .instructorImage {
+    width: 64px;
+    height: 64px;
+    background-color: #E5E7EB;
+    border-radius: 9999px;
+    overflow: hidden;
+    margin-right: 16px;
+  }
+  
+  .instructorImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+  
+  .instructorName {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111827;
+  }
+  
+  .instructorBio {
+    color: #4B5563;
+  }
+  
+  /* Testimonials in Modal */
+  .testimonialsSection {
+    margin-top: 48px;
+  }
+  
+  .testimonialsTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 24px;
+  }
+  
+  .testimonialsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  @media (min-width: 768px) {
+    .testimonialsGrid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  .testimonialCard {
+    background-color: #F9FAFB;
+    padding: 24px;
+    border-radius: 8px;
+  }
+  
+  .testimonialHeader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .testimonialImage {
+    width: 48px;
+    height: 48px;
+    background-color: #E5E7EB;
+    border-radius: 9999px;
+    overflow: hidden;
+    margin-right: 16px;
+  }
+  
+  .testimonialImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+  
+  .testimonialInfo {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .testimonialName {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111827;
+  }
+  
+  .testimonialRole {
+    font-size: 0.875rem;
+    color: #6B7280;
+  }
+  
+  .testimonialContent {
+    color: #374151;
+    margin-bottom: 16px;
+  }
+  
+  .testimonialRating {
+    display: flex;
+    margin-top: 16px;
+  }
+  
+  .testimonialRating i {
+    color: #F59E0B;
+    margin-right: 4px;
+  }
+  
+  /* FAQ Section */
+  .faqSection {
+    margin-top: 48px;
+  }
+  
+  .faqTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 24px;
+  }
+  
+  .faqList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .faqItem {
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .faqQuestion {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background-color: white;
+    transition: background-color 0.3s ease;
+  }
+  
+  .faqQuestion:hover {
+    background-color: #F9FAFB;
+  }
+  
+  .faqQuestion span {
+    font-weight: 500;
+    color: #111827;
+  }
+  
+  .faqAnswer {
+    padding: 16px;
+    background-color: #F9FAFB;
+    border-top: 1px solid #E5E7EB;
+  }
+  
+  /* Main Testimonials Section */
+  .testimonialsMainSection {
+    padding: 64px 0;
+    background-color: white;
+  }
+  
+  .sectionHeader {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  
+  .sectionTitle {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 16px;
+  }
+  
+  .sectionSubtitle {
+    color: #4B5563;
+    max-width: 672px;
+    margin: 0 auto;
+  }
+  
+  .testimonialsList {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .testimonialMainCard {
+    background-color: #F9FAFB;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .testimonialMainContent {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .testimonialMainImage {
+    width: 64px;
+    height: 64px;
+    background-color: #E5E7EB;
+    border-radius: 9999px;
+    overflow: hidden;
+    margin-right: 16px;
+    flex-shrink: 0;
+  }
+  
+  .testimonialMainImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+  
+  .testimonialMainName {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111827;
+  }
+  
+  .testimonialMainRole {
+    font-size: 0.875rem;
+    color: #6B7280;
+    margin-bottom: 16px;
+  }
+  
+  .testimonialMainText {
+    color: #374151;
+    margin-bottom: 16px;
+  }
+  
+  .testimonialMainRating {
+    display: flex;
+  }
+  
+  .testimonialMainRating i {
+    color: #F59E0B;
+    margin-right: 4px;
+  }
+  
+  /* CTA Section */
+  .ctaSection {
+    padding: 64px 0;
+    background-color: #4F46E5;
+    text-align: center;
+  }
+  
+  .ctaContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .ctaTitle {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 16px;
+  }
+  
+  .ctaSubtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 32px;
+  }
+  
+  .ctaButton {
+    background-color: white;
+    color: #4F46E5;
+    padding: 16px 32px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1.125rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+  }
+  
+  .ctaButton:hover {
+    background-color: #F3F4F6;
+  }
+  
+  /* Footer */
+  .footer {
+    background-color: #111827;
+    color: white;
+    padding-top: 64px;
+    padding-bottom: 32px;
+  }
+  
+  .footerGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 48px;
+  }
+  
+  @media (min-width: 768px) {
+    .footerGrid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
+  .footerColumn {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .footerLogo {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.25rem;
+    margin-bottom: 16px;
+  }
+  
+  .footerText {
+    color: #9CA3AF;
+    margin-bottom: 16px;
+  }
+  
+  .socialLinks {
+    display: flex;
+    gap: 16px;
+  }
+  
+  .socialLink {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1F2937;
+    border-radius: 9999px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .socialLink:hover {
+    background-color: #4F46E5;
+  }
+  
+  .footerTitle {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  
+  .footerLinks {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .footerLink {
+    color: #9CA3AF;
+    transition: color 0.3s ease;
+  }
+  
+  .footerLink:hover {
+    color: white;
+  }
+  
+  .contactInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .contactItem {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .contactItem i {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    margin-top: 2px;
+  }
+  
+  .subscribeForm {
+    display: flex;
+  }
+  
+  .subscribeInput {
+    padding: 8px 16px;
+    background-color: #1F2937;
+    color: white;
+    border: none;
+    border-radius: 8px 0 0 8px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+  }
+  
+  .subscribeInput:focus {
+    background-color: #374151;
+    outline: none;
+  }
+  
+  .subscribeButton {
+    background-color: #4F46E5;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 0 8px 8px 0;
+    white-space: nowrap;
+    transition: background-color 0.3s ease;
+  }
+  
+  .subscribeButton:hover {
+    background-color: #4338CA;
+  }
+  
+  .footerBottom {
+    padding-top: 32px;
+    border-top: 1px solid #1F2937;
+    text-align: center;
+  }
+  
+  .paymentMethods {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 16px;
+  }
+  
+  .copyright {
+    color: #9CA3AF;
+  }

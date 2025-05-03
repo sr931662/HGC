@@ -1,0 +1,236 @@
+/* Main container styles */
+.registrationContainer {
+    display: flex;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  /* Form section styles */
+  .registrationForm {
+    flex: 1;
+    padding: 3rem 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+  }
+  
+  .subtitle {
+    color: #6b7280;
+    margin-bottom: 2rem;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  /* Input group styles */
+  .inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .inputGroup label {
+    font-weight: 500;
+    color: #374151;
+  }
+  
+  .inputGroup input,
+  .inputGroup select {
+    padding: 0.75rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+  }
+  
+  .inputGroup input:focus,
+  .inputGroup select:focus {
+    outline: none;
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+  }
+  
+  /* Name fields layout */
+  .nameFields {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .nameFields .inputGroup {
+    flex: 1;
+  }
+  
+  /* Password fields layout */
+  .passwordFields {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .passwordFields .inputGroup {
+    flex: 1;
+  }
+  
+  /* Checkbox styles */
+  .checkboxGroup {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .checkboxGroup input {
+    width: 1rem;
+    height: 1rem;
+  }
+  
+  .termsLink {
+    color: #4f46e5;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .termsLink:hover {
+    text-decoration: underline;
+  }
+  
+  /* Button styles */
+  .submitButton {
+    background-color: #4f46e5;
+    color: white;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .submitButton:hover {
+    background-color: #4338ca;
+  }
+  
+  .submitButton:disabled {
+    background-color: #a5b4fc;
+    cursor: not-allowed;
+  }
+  
+  /* Login prompt */
+  .loginPrompt {
+    text-align: center;
+    color: #6b7280;
+    margin-top: 1rem;
+  }
+  
+  .loginLink {
+    color: #4f46e5;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  
+  .loginLink:hover {
+    text-decoration: underline;
+  }
+  
+  /* Image section styles */
+  .registrationImage {
+    flex: 1;
+    background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: none;
+  }
+  
+  .imageOverlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    padding: 2rem;
+    color: white;
+  }
+  
+  .imageOverlay h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .imageOverlay p {
+    opacity: 0.9;
+  }
+  
+  /* Error styles */
+  .errorInput {
+    border-color: #ef4444 !important;
+  }
+  
+  .errorCheckbox {
+    outline: 2px solid #ef4444;
+  }
+  
+  .error {
+    color: #ef4444;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+  }
+  
+  /* Success message styles */
+  .successMessage {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f0fdf4;
+    border-radius: 8px;
+    border: 1px solid #bbf7d0;
+  }
+  
+  .successMessage h2 {
+    color: #166534;
+    margin-bottom: 1rem;
+  }
+  
+  .successMessage p {
+    color: #166534;
+    margin-bottom: 1.5rem;
+  }
+  
+  .continueButton {
+    background-color: #4f46e5;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  /* Responsive styles */
+  @media (min-width: 1024px) {
+    .registrationImage {
+      display: block;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .nameFields,
+    .passwordFields {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .registrationForm {
+      padding: 2rem 1.5rem;
+    }
+  }
