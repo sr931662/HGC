@@ -756,6 +756,7 @@
     padding: 64px 0;
     background-color: #4F46E5;
     text-align: center;
+    margin-bottom: -100px;
   }
   
   .ctaContent {

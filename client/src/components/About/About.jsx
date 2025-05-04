@@ -1,33 +1,24 @@
 import { useState } from 'react';
 import styles from './About.module.css';
+import { RiArrowRightLine, RiLinkedinFill, RiMailFill, RiTwitterFill, RiAwardLine, RiUserHeartLine, RiHeartLine, RiUserSettingsLine, RiRoadMapLine, RiFeedbackLine } from 'react-icons/ri';
+import { Link } from 'react-router-dom';
+import shivam from "../../assets/Casual-photo.jpg"
 
 const About = () => {
   const [activeTab, setActiveTab] = useState('mission');
 
   const teamMembers = [
     {
-      name: "Dr. Elizabeth Chen",
+      name: "Mr. Himanshu Garg",
       role: "Founder & CEO",
-      bio: "Ph.D. in Education from Stanford University with over 25 years of experience in educational leadership and coaching methodologies.",
-      image: "https://readdy.ai/api/search-image?query=Professional%2520headshot%2520of%2520an%2520Asian%2520woman%2520in%2520her%252050s%2520with%2520short%2520black%2520hair%2520and%2520glasses%2C%2520wearing%2520professional%2520business%2520attire.%2520Confident%2520expression%2520with%2520a%2520warm%2520smile.%2520Clean%2520neutral%2520background.%2520High-quality%2520portrait%2520suitable%2520for%2520an%2520executive%2520profile.%2520Professional%2520photography%2520style.&width=400&height=500&seq=2001&orientation=portrait"
+      bio: "BCA graduate from BIT, MESRA. Have 1 year of experience in Educational field towards competitive subjects including Mathematics, Computer Science and DevOps.",
+      image: ""
     },
     {
-      name: "Dr. James Washington",
-      role: "Academic Director",
-      bio: "Former university professor with a Ph.D. in Mathematics from MIT and 15+ years of experience in curriculum development.",
-      image: "https://readdy.ai/api/search-image?query=Professional%2520headshot%2520of%2520an%2520African%2520American%2520man%2520in%2520his%252040s%2520with%2520short%2520hair%2520and%2520glasses%2C%2520wearing%2520professional%2520business%2520attire.%2520Confident%2520expression%2520with%2520a%2520warm%2520smile.%2520Clean%2520neutral%2520background.%2520High-quality%2520portrait%2520suitable%2520for%2520an%2520executive%2520profile.%2520Professional%2520photography%2520style.&width=400&height=500&seq=2002&orientation=portrait"
-    },
-    {
-      name: "Maria Rodriguez",
-      role: "Career Development Lead",
-      bio: "MBA from Harvard Business School with extensive experience in corporate recruiting and professional coaching.",
-      image: "https://readdy.ai/api/search-image?query=Professional%2520headshot%2520of%2520a%2520Hispanic%2520woman%2520in%2520her%252030s%2520with%2520long%2520brown%2520hair%2C%2520wearing%2520professional%2520business%2520attire.%2520Confident%2520expression%2520with%2520a%2520warm%2520smile.%2520Clean%2520neutral%2520background.%2520High-quality%2520portrait%2520suitable%2520for%2520an%2520executive%2520profile.%2520Professional%2520photography%2520style.&width=400&height=500&seq=2003&orientation=portrait"
-    },
-    {
-      name: "Dr. Raj Patel",
-      role: "International Programs Director",
-      bio: "Ph.D. in International Education with experience working with educational institutions across 15+ countries.",
-      image: "https://readdy.ai/api/search-image?query=Professional%2520headshot%2520of%2520an%2520Indian%2520man%2520in%2520his%252030s%2520with%2520short%2520black%2520hair%2C%2520wearing%2520professional%2520business%2520attire.%2520Confident%2520expression%2520with%2520a%2520warm%2520smile.%2520Clean%2520neutral%2520background.%2520High-quality%2520portrait%2520suitable%2520for%2520an%2520executive%2520profile.%2520Professional%2520photography%2520style.&width=400&height=500&seq=2004&orientation=portrait"
+      name: "Mr. Shivam Kumar Singh",
+      role: "Tech Lead",
+      bio: "MCA 2nd year from BIT, MESRA. 2 Years of experience in Educating Undergraduate and High Schoolers in the field of Science, English, Computer Science and AI/ML.",
+      image: shivam
     }
   ];
 
@@ -90,7 +81,7 @@ const About = () => {
           <div className={styles.heroContent}>
             <h1 className={styles.heroTitle}>About Excellence Coaching Institute</h1>
             <p className={styles.heroSubtitle}>Empowering individuals to achieve their full potential through personalized coaching and proven methodologies since 2005.</p>
-            <button className={styles.heroButton}>Our Programs</button>
+            <Link to="/programs" className={styles.heroButton}>Our Programs</Link>
           </div>
         </div>
       </section>
@@ -106,7 +97,7 @@ const About = () => {
               <div className={styles.valuesContainer}>
                 <div className={styles.valueItem}>
                   <div className={styles.valueIcon}>
-                    <i className="ri-award-line ri-lg"></i>
+                    <RiAwardLine className="ri-award-line ri-lg"></RiAwardLine>
                   </div>
                   <div>
                     <h3 className={styles.valueTitle}>Excellence</h3>
@@ -116,7 +107,7 @@ const About = () => {
                 
                 <div className={styles.valueItem}>
                   <div className={styles.valueIcon}>
-                    <i className="ri-user-heart-line ri-lg"></i>
+                    <RiUserHeartLine className="ri-user-heart-line ri-lg"></RiUserHeartLine>
                   </div>
                   <div>
                     <h3 className={styles.valueTitle}>Personalization</h3>
@@ -126,7 +117,7 @@ const About = () => {
                 
                 <div className={styles.valueItem}>
                   <div className={styles.valueIcon}>
-                    <i className="ri-heart-line ri-lg"></i>
+                    <RiHeartLine className="ri-heart-line ri-lg"></RiHeartLine>
                   </div>
                   <div>
                     <h3 className={styles.valueTitle}>Integrity</h3>
@@ -190,13 +181,13 @@ const About = () => {
                   
                   <div className={styles.socialLinks}>
                     <a href="#" className={styles.socialLink}>
-                      <i className="ri-linkedin-fill ri-sm"></i>
+                      <RiLinkedinFill className="ri-linkedin-fill ri-sm"></RiLinkedinFill>
                     </a>
                     <a href="#" className={styles.socialLink}>
-                      <i className="ri-twitter-fill ri-sm"></i>
+                      <RiTwitterFill className="ri-twitter-fill ri-sm"></RiTwitterFill>
                     </a>
                     <a href="#" className={styles.socialLink}>
-                      <i className="ri-mail-fill ri-sm"></i>
+                      <RiMailFill className="ri-mail-fill ri-sm"></RiMailFill>
                     </a>
                   </div>
                 </div>
@@ -204,7 +195,7 @@ const About = () => {
             ))}
           </div>
           
-          <div className={styles.textCenter}>
+          <div className={styles.textCenter} style={{ marginTop: "50px"}}>
             <button className={styles.secondaryButton}>View All Team Members</button>
           </div>
         </div>
@@ -221,7 +212,7 @@ const About = () => {
           <div className={styles.methodologyGrid}>
             <div className={styles.methodologyCard}>
               <div className={styles.methodologyIcon}>
-                <i className="ri-user-settings-line ri-2x"></i>
+                <RiUserSettingsLine className="ri-user-settings-line ri-2x"></RiUserSettingsLine>
               </div>
               <h3 className={styles.methodologyTitle}>Personalized Assessment</h3>
               <p className={styles.methodologyDescription}>We begin with a comprehensive assessment to understand each student's unique learning style, strengths, challenges, and goals. This forms the foundation of our personalized coaching approach.</p>
@@ -235,7 +226,7 @@ const About = () => {
             
             <div className={styles.methodologyCard}>
               <div className={styles.methodologyIcon}>
-                <i className="ri-road-map-line ri-2x"></i>
+                <RiRoadMapLine className="ri-road-map-line ri-2x"></RiRoadMapLine>
               </div>
               <h3 className={styles.methodologyTitle}>Strategic Learning Paths</h3>
               <p className={styles.methodologyDescription}>Based on the assessment, we create customized learning paths with clear milestones and targeted exercises designed to address specific needs while building on existing strengths.</p>
@@ -249,7 +240,7 @@ const About = () => {
             
             <div className={styles.methodologyCard}>
               <div className={styles.methodologyIcon}>
-                <i className="ri-feedback-line ri-2x"></i>
+                <RiFeedbackLine className="ri-feedback-line ri-2x"></RiFeedbackLine>
               </div>
               <h3 className={styles.methodologyTitle}>Continuous Feedback Loop</h3>
               <p className={styles.methodologyDescription}>We implement regular progress assessments and provide detailed feedback, allowing us to adjust strategies in real-time and ensure optimal learning outcomes.</p>
@@ -293,10 +284,6 @@ const About = () => {
               </div>
             ))}
           </div>
-          
-          <div className={styles.textCenter}>
-            <a href="#" className={styles.textLink}>View More Testimonials <i className="ri-arrow-right-line ri-sm"></i></a>
-          </div>
         </div>
       </section>
 
@@ -308,8 +295,8 @@ const About = () => {
             <p className={styles.ctaSubtitle}>Join thousands of successful students who have achieved their goals with Excellence Coaching Institute.</p>
             
             <div className={styles.ctaButtons}>
-              <button className={styles.primaryButton}>Explore Programs</button>
-              <button className={styles.outlineButton}>Schedule Consultation</button>
+              <Link to="/programs" className={styles.primaryButton}>Explore Programs</Link>
+              <Link to="/scheduler" className={styles.outlineButton}>Schedule Consultation</Link>
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const enrollmentController = require("../controllers/enrollment-controller");
-const authMiddleware = require("../middleware/auth-middleware");
+const enrollmentController = require("../controllers/enroll-controller");
+const authMiddleware = require("../midd/auth-midd");
 
 // Protected routes (require authentication)
 router.route("/")

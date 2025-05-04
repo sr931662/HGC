@@ -1,5 +1,6 @@
 .profileContainer {
     min-height: 100vh;
+    margin-top: 100px;
     background-color: #f9fafb;
     color: #1f2937;
   }

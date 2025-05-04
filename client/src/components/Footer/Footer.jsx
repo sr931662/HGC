@@ -1,5 +1,9 @@
 import React from 'react';
 import styles from './Footer.module.css';
+import { RiArrowLeftLine, RiMenuLine, RiCheckLine, RiArrowDownSLine, RiBankCardLine, 
+         RiQuestionLine, RiInformationLine, RiShieldCheckLine, RiMapPinLine, 
+         RiPhoneLine, RiMailLine, RiVisaFill, RiMastercardFill, RiPaypalFill, 
+         RiAppleFill, RiFacebookFill, RiTwitterFill, RiInstagramFill, RiLinkedinFill } from 'react-icons/ri';
 
 const Footer = () => {
   return (
@@ -13,40 +17,52 @@ const Footer = () => {
           <div className={styles.footerSection}>
             <h4 className={styles.sectionTitle}>Quick Links</h4>
             <ul className={styles.linkList}>
-              <li><a href="#" className={styles.footerLink}>Home</a></li>
-              <li><a href="#" className={styles.footerLink}>Courses</a></li>
-              <li><a href="#" className={styles.footerLink}>About Us</a></li>
-              <li><a href="#" className={styles.footerLink}>Contact</a></li>
-            </ul>
-          </div>
-          <div className={styles.footerSection}>
-            <h4 className={styles.sectionTitle}>Programs</h4>
-            <ul className={styles.linkList}>
-              <li><a href="#" className={styles.footerLink}>School Mathematics</a></li>
-              <li><a href="#" className={styles.footerLink}>Competition Prep</a></li>
-              <li><a href="#" className={styles.footerLink}>Foundation Courses</a></li>
+              <li><a href="/" className={styles.footerLink}>Home</a></li>
+              <li><a href="/programs" className={styles.footerLink}>Courses</a></li>
+              <li><a href="/about-us" className={styles.footerLink}>About Us</a></li>
+              <li><a href="/enroll" className={styles.footerLink}>Enrollment</a></li>
             </ul>
           </div>
           <div className={styles.footerSection}>
             <h4 className={styles.sectionTitle}>Follow Us</h4>
             <div className={styles.socialLinks}>
               <a href="#" className={styles.socialIcon}>
-                <i className="fab fa-facebook"></i>
+                <RiFacebookFill className={styles.contactIcon}></RiFacebookFill>
               </a>
               <a href="#" className={styles.socialIcon}>
-                <i className="fab fa-twitter"></i>
+                <RiTwitterFill className={styles.contactIcon}></RiTwitterFill>
               </a>
               <a href="#" className={styles.socialIcon}>
-                <i className="fab fa-instagram"></i>
+                <RiInstagramFill className={styles.contactIcon}></RiInstagramFill>
               </a>
               <a href="#" className={styles.socialIcon}>
-                <i className="fab fa-linkedin"></i>
+                <RiLinkedinFill className={styles.contactIcon}></RiLinkedinFill>
               </a>
             </div>
           </div>
+
+          
+          {/* Column 3 */}
+          <div>
+            <h4 className={styles.sectionTitle}>Contact Us</h4>
+            <ul className={styles.footerList}>
+              <li className={styles.footerContactItem}>
+                <RiMapPinLine className={styles.contactIcon} />
+                <span>Sector 1, Noida, Uttar Pradesh 201301</span>
+              </li>
+              <li className={styles.footerContactItem}>
+                <RiPhoneLine className={styles.contactIcon} />
+                <span>+91 8802701339</span>
+              </li>
+              <li className={styles.footerContactItem}>
+                <RiMailLine className={styles.contactIcon} />
+                <span>info@excellencecoaching.com</span>
+              </li>
+            </ul>
+          </div>
         </div>
         <div className={styles.copyright}>
-          <p>&copy; 2024 PrepElite Academy. All rights reserved.</p>
+          <p>&copy; 2025 PrepElite Academy. All rights reserved.</p>
         </div>
       </div>
     </footer>

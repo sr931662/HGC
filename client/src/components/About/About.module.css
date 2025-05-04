@@ -175,7 +175,7 @@
     position: relative;
     padding-left: 2rem;
     padding-bottom: 3rem;
-    margin-left: 50%;
+    /* margin-left: 50%; */
   }
   
   .timelineItem:last-child {
@@ -238,7 +238,7 @@
   
   @media (min-width: 1024px) {
     .teamGrid {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
   }
   
@@ -256,7 +256,7 @@
   }
   
   .teamImageContainer {
-    height: 16rem;
+    height: 24rem;
     overflow: hidden;
   }
   
@@ -460,6 +460,9 @@
   
   .textLink {
     color: #4F46E5;
+    font-size: 25px;
+    text-transform: uppercase;
+    text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
   }
@@ -471,6 +474,7 @@
   /* CTA Section */
   .ctaSection {
     padding: 4rem 0;
+    margin-bottom: -100px;
     background-color: #4F46E5;
     text-align: center;
   }

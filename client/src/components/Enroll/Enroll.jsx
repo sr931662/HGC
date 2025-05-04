@@ -1,11 +1,99 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 import styles from './Enroll.module.css';
 import { RiArrowLeftLine, RiMenuLine, RiCheckLine, RiArrowDownSLine, RiBankCardLine, 
          RiQuestionLine, RiInformationLine, RiShieldCheckLine, RiMapPinLine, 
          RiPhoneLine, RiMailLine, RiVisaFill, RiMastercardFill, RiPaypalFill, 
          RiAppleFill, RiFacebookFill, RiTwitterFill, RiInstagramFill, RiLinkedinFill } from 'react-icons/ri';
+// Add these imports at the top of Enroll.jsx
+import { useAuth } from '../../context/auth-context';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Enroll = () => {
+  const { user } = useAuth();
+  const navigate = useNavigate();
+  
+  // ... existing state declarations ...
+
+  // Modify handleSubmit to send data to backend
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    try {
+      // Format the data according to your backend schema
+      const enrollmentData = {
+        course: {
+          id: selectedCourse.id,
+          name: selectedCourse.name,
+          description: selectedCourse.description,
+          duration: selectedCourse.duration,
+          price: parseInt(selectedCourse.price.replace(/,/g, '')) // Remove commas and convert to number
+        },
+        payment: {
+          method: paymentMethod,
+          amount: parseInt(selectedCourse.price.replace(/,/g, '')),
+          totalAmount: parseInt(selectedCourse.price.replace(/,/g, '')) + 50, // Including registration fee
+          cardDetails: paymentMethod === 'credit-card' ? {
+            cardName: formData.cardName,
+            cardNumber: formData.cardNumber,
+            expiryDate: formData.expiryDate,
+            cvv: formData.cvv
+          } : undefined
+        },
+        schedule: selectedSlots,
+        personalInfo: {
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          phone: formData.phone,
+          address: formData.address,
+          city: formData.city,
+          zipCode: formData.zipCode,
+          country: formData.country,
+          education: formData.education,
+          emergencyContact: {
+            name: formData.emergencyContact,
+            phone: formData.emergencyPhone,
+            relation: formData.emergencyRelation
+          }
+        }
+      };
+  
+      // Print the formatted data to console
+      console.log("Enrollment Data to be Submitted:", JSON.stringify(enrollmentData, null, 2));
+  
+      const response = await axios.post('http://localhost:5001/api/enrollments', enrollmentData, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem("token")}`,
+          'Content-Type': 'application/json'
+        }
+      });
+  
+      setShowSuccessModal(true);
+    } catch (error) {
+      console.error('Enrollment failed:', error);
+      if (error.response) {
+        console.error('Server responded with:', error.response.data);
+      }
+    }
+  };
+
+  // Add useEffect to pre-fill user data if logged in
+  useEffect(() => {
+    if (user) {
+      setFormData(prev => ({
+        ...prev,
+        firstName: user.firstName || '',
+        lastName: user.lastName || '',
+        email: user.email || '',
+        phone: user.phone || '',
+        address: user.address || '',
+        city: user.city || '',
+        zipCode: user.zipCode || '',
+        country: user.country || ''
+      }));
+    }
+  }, [user]);
   const [currentStep, setCurrentStep] = useState(1);
   const [selectedCourse, setSelectedCourse] = useState(null);
   const [paymentMethod, setPaymentMethod] = useState('credit-card');
@@ -150,10 +238,10 @@ const Enroll = () => {
     window.scrollTo(0, 0);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setShowSuccessModal(true);
-  };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   setShowSuccessModal(true);
+  // };
 
   const closeModal = () => {
     setShowSuccessModal(false);
@@ -1029,75 +1117,7 @@ const Enroll = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className={styles.footer}>
-        <div className={styles.footerContainer}>
-          <div className={styles.footerGrid}>
-            {/* Column 1 */}
-            <div>
-              <h3 className={styles.footerLogo}>logo</h3>
-              <p className={styles.footerText}>
-                Empowering individuals to achieve academic and professional excellence through personalized coaching and proven methodologies.
-              </p>
-              <div className={styles.socialLinks}>
-                <a href="#" className={styles.socialLink}><RiFacebookFill /></a>
-                <a href="#" className={styles.socialLink}><RiTwitterFill /></a>
-                <a href="#" className={styles.socialLink}><RiInstagramFill /></a>
-                <a href="#" className={styles.socialLink}><RiLinkedinFill /></a>
-              </div>
-            </div>
-            {/* Column 2 */}
-            <div>
-              <h4 className={styles.footerHeading}>Quick Links</h4>
-              <ul className={styles.footerList}>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Programs</a></li>
-                <li><a href="#">Foundation Courses</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact</a></li>
-              </ul>
-            </div>
-            {/* Column 3 */}
-            <div>
-              <h4 className={styles.footerHeading}>Contact Us</h4>
-              <ul className={styles.footerList}>
-                <li className={styles.footerContactItem}>
-                  <RiMapPinLine className={styles.contactIcon} />
-                  <span>123 Education Avenue, New York, NY 10001</span>
-                </li>
-                <li className={styles.footerContactItem}>
-                  <RiPhoneLine className={styles.contactIcon} />
-                  <span>(123) 456-7890</span>
-                </li>
-                <li className={styles.footerContactItem}>
-                  <RiMailLine className={styles.contactIcon} />
-                  <span>info@excellencecoaching.com</span>
-                </li>
-              </ul>
-            </div>
-            {/* Column 4 */}
-            <div>
-              <h4 className={styles.footerHeading}>Subscribe</h4>
-              <p className={styles.footerText}>
-                Stay updated with our latest programs and success stories.
-              </p>
-              <div className={styles.subscribeForm}>
-                <input type="email" placeholder="Your email" className={styles.subscribeInput} />
-                <button className={styles.subscribeButton}>Subscribe</button>
-              </div>
-            </div>
-          </div>
-          <div className={styles.footerBottom}>
-            <div className={styles.paymentMethods}>
-              <RiVisaFill className={styles.paymentIcon} />
-              <RiMastercardFill className={styles.paymentIcon} />
-              <RiPaypalFill className={styles.paymentIcon} />
-              <RiAppleFill className={styles.paymentIcon} />
-            </div>
-            <p>&copy; 2025 Excellence Coaching Institute. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+
 
       {/* Success Modal */}
       {showSuccessModal && (
